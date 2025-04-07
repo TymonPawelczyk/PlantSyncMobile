@@ -1,15 +1,30 @@
-import { Link } from 'expo-router';
-import { Text, View,  StyleSheet } from 'react-native';
+import { Text, View,  StyleSheet, Appearance, StatusBar } from 'react-native';
 
 export default function Index() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text} >Home screen</Text>
-      <Link href="/about" style={styles.button}>
-        Go to About screen
-      </Link>
-    </View>
-  );
+  const colorScheme = Appearance.getColorScheme();
+  if (colorScheme === 'dark') {
+    console.log('Dark mode is enabled');
+    return (
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor="blue"
+          barStyle="light-content"
+        />      
+        <Text style={styles.text} >Home screen</Text>
+      </View>
+    );
+  } else {
+    console.log('Light mode is enabled');
+    return (
+      <View style={stylesLight.container}>      
+        <StatusBar
+            backgroundColor="blue"
+            barStyle="dark-content"
+        />
+        <Text style={stylesLight.text} >Home screen</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -28,3 +43,20 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+
+const stylesLight = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    color: '#000',
+  },
+  button: {
+    fontSize: 20,
+    textDecorationLine: 'underline',
+    color: '#000',
+  },
+})
