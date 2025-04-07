@@ -9,8 +9,6 @@ export default function TabLayout() {
       headerStyle: {
         backgroundColor: '#25292e',
       },
-      headerShadowVisible: false,
-      headerTintColor: '#fff',
       tabBarStyle: {
       backgroundColor: '#25292e',
       borderTopColor: '#25292e',
@@ -27,6 +25,13 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen name="plants" options={{
+          title: 'Plants',
+          headerShown: false,
+          tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+            <Ionicons name={focused ? 'leaf' : 'leaf-outline'} color={color} size={24} />
+          ),
+        }} />
       <Tabs.Screen
         name="settings"
         options={{
@@ -37,7 +42,7 @@ export default function TabLayout() {
           ),
         }}
       />
-        <Tabs.Screen
+      <Tabs.Screen
           name="about"
           options={{
             title: 'About',
