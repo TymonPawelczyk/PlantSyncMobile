@@ -4,8 +4,8 @@ name: Auto-delete feature branches
 on:
   pull_request:
     types: [closed]
-  schedule:
-    - cron: "0 2 * * *"
+  # schedule:
+  #   - cron: "0 2 * * *"
 
 jobs:
   delete-merged-branch:
