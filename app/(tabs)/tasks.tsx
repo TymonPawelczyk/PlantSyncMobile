@@ -4,7 +4,6 @@ export default function TasksScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Tasks screen</Text>
-      <Text style={styles.text}>Text at tasks screen</Text>
     </View>
   );
 }
