@@ -7,7 +7,7 @@ export default function PlantsScreen() {
   return (
     <SafeAreaProvider>
     <SafeAreaView style={styles.container} edges={['top']}>
-      <StatusBar style="auto" backgroundColor="#000" />    
+      <StatusBar style="auto"/>    
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
           Plants screen
