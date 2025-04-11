@@ -1,14 +1,26 @@
 import React from 'react';
-import {StyleSheet, Text, ScrollView,} from 'react-native';
+import {RefreshControl ,StyleSheet, Text, ScrollView,} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
 export default function PlantsScreen() {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
   return (
     <SafeAreaProvider>
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar style="auto"/>    
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+          contentContainerStyle={styles.scrollView}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }>
         <Text style={styles.text}>
           Fruits
             </Text>
