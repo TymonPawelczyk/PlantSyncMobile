@@ -14,8 +14,8 @@ export default function PlantsScreen() {
             </Text>
           {['Apple', 'Banana', 'Cherry', 'Pineapple', 'Watermelon', 'Melon'].map((fruit, index) => (
             <Text key={index} style={styles.items}>
-              {fruit}
-              <Text> Description</Text>
+              "{fruit}"
+              <Text style={styles.description}> "Description"</Text>
             </Text>
         ))}
         <Text style={styles.text}>
@@ -23,8 +23,10 @@ export default function PlantsScreen() {
             </Text>
           {['Carrot', 'Potato', 'Tomato', 'Salad' ].map((vegetable, index) => (
             <Text key={index} style={styles.items}>
-              {vegetable}
+              "{vegetable}"
+              <Text style={styles.description}> "Description"</Text>
             </Text>
+            
         ))}
       </ScrollView>
     </SafeAreaView>
@@ -36,13 +38,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#25292e',
+    justifyContent: 'center',
   },
   scrollView: {
     backgroundColor: '#25292e',
   },
   text: {
     color: '#fff',
-    fontSize: 42,
+    fontSize: 32,
     padding: 12,
   },
   items: {
@@ -61,5 +64,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 5,
+  },
+  description: {
+    color: '#fff',
+    fontSize: 13,
+    padding: 6,
+    marginVertical: 6,
+    marginHorizontal: 16,
   }
 });
