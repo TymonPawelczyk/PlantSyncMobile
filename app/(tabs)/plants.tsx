@@ -10,8 +10,22 @@ export default function PlantsScreen() {
       <StatusBar style="auto"/>    
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>
-          Plants screen
+          Fruits
+            </Text>
+          {['Apple', 'Banana', 'Cherry', 'Pinapple', 'Watermelon', 'Melon'].map((fruit, index) => (
+            <Text key={index} style={styles.items}>
+              {fruit}
+              <Text> Description</Text>
+            </Text>
+        ))}
+        <Text style={styles.text}>
+          Vegetables
+            </Text>
+          {['Carrot', 'Potato', 'Tomato', 'Salad' ].map((vegetable, index) => (
+            <Text key={index} style={styles.items}>
+              {vegetable}
         </Text>
+        ))}
       </ScrollView>
     </SafeAreaView>
   </SafeAreaProvider>
