@@ -24,7 +24,7 @@ export default function PlantsScreen() {
           {['Carrot', 'Potato', 'Tomato', 'Salad' ].map((vegetable, index) => (
             <Text key={index} style={styles.items}>
               {vegetable}
-        </Text>
+            </Text>
         ))}
       </ScrollView>
     </SafeAreaView>
