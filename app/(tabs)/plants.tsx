@@ -12,7 +12,7 @@ export default function PlantsScreen() {
         <Text style={styles.text}>
           Fruits
             </Text>
-          {['Apple', 'Banana', 'Cherry', 'Pinapple', 'Watermelon', 'Melon'].map((fruit, index) => (
+          {['Apple', 'Banana', 'Cherry', 'Pineapple', 'Watermelon', 'Melon'].map((fruit, index) => (
             <Text key={index} style={styles.items}>
               {fruit}
               <Text> Description</Text>
