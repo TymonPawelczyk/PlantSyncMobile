@@ -45,5 +45,21 @@ const styles = StyleSheet.create({
     fontSize: 42,
     padding: 12,
   },
-  
+  items: {
+    color: '#fff',
+    fontSize: 18,
+    padding: 26,
+    marginVertical: 6,
+    marginHorizontal: 16,
+    backgroundColor: '#2d3436',
+    borderWidth: 2,
+    borderColor: '#778da9',
+    borderRadius: 12,
+    overflow: 'hidden',
+    shadowColor: '#6c5ce7',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
+  }
 });
