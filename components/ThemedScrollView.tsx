@@ -11,7 +11,7 @@ export type ThemedScrollViewProps = ScrollViewProps & {
 export function ThemedScrollView(props: ThemedScrollViewProps) {
   const colorScheme = useColorScheme(); // Get system color scheme
   const colors = {
-    background: colorScheme === 'dark' ? '#1F2024' : '#e5e5e5',
+    background: colorScheme === 'dark' ? '#242626' : '#D8D7D4',
   };
   const { style, contentContainerStyle, ...otherProps } = props;
 
