@@ -12,9 +12,13 @@ export default function TabLayout() {
   return (
     <Tabs
     screenOptions={{
-      tabBarActiveTintColor: '#ffd33d',
+      headerShown: false,
+      tabBarActiveTintColor: colors.text,
+      tabBarInactiveTintColor: colors.text,
       headerStyle: {
-        backgroundColor: '#25292e',
+        backgroundColor: colors.background,
+        shadowColor: colors.background,
+        borderBottomColor: colors.background,
       },
       tabBarStyle: {
         backgroundColor: colors.background,
@@ -26,7 +30,6 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          headerShown: false,
           tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
             <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24} />
           ),
@@ -34,14 +37,12 @@ export default function TabLayout() {
       />
       <Tabs.Screen name="plants" options={{
           title: 'Plants',
-          headerShown: false,
           tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
             <Ionicons name={focused ? 'leaf' : 'leaf-outline'} color={color} size={24} />
           ),
         }} />
       <Tabs.Screen name="tasks"options={{
           title: 'Tasks',
-          headerShown: false,
           tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
             <Ionicons name={focused ? 'clipboard-outline' : 'clipboard-outline'} color={color} size={24} />
           ),
