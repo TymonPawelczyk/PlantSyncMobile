@@ -17,7 +17,6 @@ export default function PlantsScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar style="auto"/>    
       <ScrollView
-          contentContainerStyle={styles.scrollView}
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
@@ -49,24 +48,17 @@ export default function PlantsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
     justifyContent: 'center',
   },
-  scrollView: {
-    backgroundColor: '#25292e',
-  },
   text: {
-    color: '#fff',
     fontSize: 32,
     padding: 12,
   },
   items: {
-    color: '#fff',
     fontSize: 18,
     padding: 26,
     marginVertical: 6,
     marginHorizontal: 16,
-    backgroundColor: '#2d3436',
     borderWidth: 2,
     borderColor: '#161a1d',
     borderRadius: 12,
@@ -78,7 +70,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   description: {
-    color: '#fff',
     fontSize: 13,
     padding: 6,
     marginVertical: 6,
