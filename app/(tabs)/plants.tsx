@@ -1,32 +1,48 @@
 import React from 'react';
-import {StyleSheet, Text, ScrollView,} from 'react-native';
+import {RefreshControl ,StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
+import { ThemedScrollView } from '@/components/ThemedScrollView';
+import { ThemedText } from '@/components/ThemedText';
+
 export default function PlantsScreen() {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
   return (
     <SafeAreaProvider>
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar style="auto"/>    
-      <ScrollView style={styles.scrollView}>
-        <Text style={styles.text}>
+      <ThemedScrollView
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }>
+        <ThemedText style={styles.text}>
           Fruits
-            </Text>
+            </ThemedText>
           {['Apple', 'Banana', 'Cherry', 'Pineapple', 'Watermelon', 'Melon'].map((fruit, index) => (
-            <Text key={index} style={styles.items}>
-              {fruit}
-              <Text> Description</Text>
-            </Text>
+            <ThemedText key={index} style={styles.items}>
+              "{fruit}"
+              <ThemedText style={styles.description}> "Description"</ThemedText>
+            </ThemedText>
         ))}
-        <Text style={styles.text}>
+        <ThemedText style={styles.text}>
           Vegetables
-            </Text>
+            </ThemedText>
           {['Carrot', 'Potato', 'Tomato', 'Salad' ].map((vegetable, index) => (
-            <Text key={index} style={styles.items}>
-              {vegetable}
-            </Text>
+            <ThemedText key={index} style={styles.items}>
+              "{vegetable}"
+              <ThemedText style={styles.description}> "Description"</ThemedText>
+            </ThemedText>
+            
         ))}
-      </ScrollView>
+      </ThemedScrollView>
     </SafeAreaView>
   </SafeAreaProvider>
   );
@@ -35,23 +51,17 @@ export default function PlantsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
-  },
-  scrollView: {
-    backgroundColor: '#25292e',
+    justifyContent: 'center',
   },
   text: {
-    color: '#fff',
-    fontSize: 42,
+    fontSize: 32,
     padding: 12,
   },
   items: {
-    color: '#fff',
     fontSize: 18,
     padding: 26,
     marginVertical: 6,
     marginHorizontal: 16,
-    backgroundColor: '#2d3436',
     borderWidth: 2,
     borderColor: '#161a1d',
     borderRadius: 12,
@@ -61,5 +71,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 5,
+  },
+  description: {
+    fontSize: 13,
+    padding: 6,
+    marginVertical: 6,
+    marginHorizontal: 16,
   }
 });
