@@ -9,7 +9,7 @@ export type ThemedTextProps = TextProps & {
 export function ThemedText(props: ThemedTextProps) {
   const colorScheme = useColorScheme();
   const colors = {
-    text: colorScheme === 'dark' ? '#ffffff' : '#000000',
+    text: colorScheme === 'dark' ? '#F0EAD2' : '#000000',
   };
 
   const { style, ...otherProps } = props;
