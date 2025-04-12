@@ -1,7 +1,10 @@
 import React from 'react';
-import {RefreshControl ,StyleSheet, Text, ScrollView,} from 'react-native';
+import {RefreshControl ,StyleSheet, Text,} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+
+import { ThemedScrollView } from '@/components/ThemedScrollView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function PlantsScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -16,30 +19,30 @@ export default function PlantsScreen() {
     <SafeAreaProvider>
     <SafeAreaView style={styles.container} edges={['top']}>
       <StatusBar style="auto"/>    
-      <ScrollView
+      <ThemedScrollView
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
-        <Text style={styles.text}>
+        <ThemedText style={styles.text}>
           Fruits
-            </Text>
+            </ThemedText>
           {['Apple', 'Banana', 'Cherry', 'Pineapple', 'Watermelon', 'Melon'].map((fruit, index) => (
-            <Text key={index} style={styles.items}>
+            <ThemedText key={index} style={styles.items}>
               "{fruit}"
-              <Text style={styles.description}> "Description"</Text>
-            </Text>
+              <ThemedText style={styles.description}> "Description"</ThemedText>
+            </ThemedText>
         ))}
-        <Text style={styles.text}>
+        <ThemedText style={styles.text}>
           Vegetables
-            </Text>
+            </ThemedText>
           {['Carrot', 'Potato', 'Tomato', 'Salad' ].map((vegetable, index) => (
-            <Text key={index} style={styles.items}>
+            <ThemedText key={index} style={styles.items}>
               "{vegetable}"
-              <Text style={styles.description}> "Description"</Text>
-            </Text>
+              <ThemedText style={styles.description}> "Description"</ThemedText>
+            </ThemedText>
             
         ))}
-      </ScrollView>
+      </ThemedScrollView>
     </SafeAreaView>
   </SafeAreaProvider>
   );
