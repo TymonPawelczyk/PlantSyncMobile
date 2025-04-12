@@ -1,5 +1,5 @@
 import React from 'react';
-import {RefreshControl ,StyleSheet, Text,} from 'react-native';
+import {RefreshControl ,StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 

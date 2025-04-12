@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextProps, StyleSheet, TextStyle } from 'react-native';
+import { Text, TextProps, TextStyle } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme.web';
 
 export type ThemedTextProps = TextProps & {
@@ -21,7 +21,3 @@ export function ThemedText(props: ThemedTextProps) {
     />
   );
 }
-
-const styles = StyleSheet.create({
-  // Add default text styles here if needed
-});
