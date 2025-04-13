@@ -40,12 +40,6 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   text: {
     color: '#fff',
   },
@@ -55,20 +49,3 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
-
-const stylesLight = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: '#000',
-  },
-  button: {
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#000',
-  },
-})
