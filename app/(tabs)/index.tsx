@@ -1,5 +1,5 @@
 import React from 'react';
-import {RefreshControl ,StyleSheet} from 'react-native';
+import {RefreshControl ,StyleSheet, View} from 'react-native';
 import { SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
@@ -19,7 +19,9 @@ export default function Index() {
     return (
       <SafeAreaProvider> 
       <ThemedSafeAreaView>
-        <StatusBar style="auto"/>    
+          <View style={styles.statusBarContainer}>
+            <StatusBar style="auto" animated/>
+          </View>    
         <ThemedScrollView
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -38,5 +40,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     padding: 12,
+  },
+  statusBarContainer: {
+    borderColor: '#343a40',
+    borderBottomWidth: 0.2,
   },
 });
