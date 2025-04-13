@@ -41,11 +41,7 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   text: {
-    color: '#fff',
-  },
-  button: {
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
+    fontSize: 32,
+    padding: 12,
   },
 });
