@@ -1,9 +1,10 @@
 import React from 'react';
 import {RefreshControl ,StyleSheet} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import { SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
 import { ThemedScrollView } from '@/components/ThemedScrollView';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { ThemedText } from '@/components/ThemedText';
 
 export default function PlantsScreen() {
@@ -17,7 +18,7 @@ export default function PlantsScreen() {
   }, []);
   return (
     <SafeAreaProvider>
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <ThemedSafeAreaView>
       <StatusBar style="auto"/>    
       <ThemedScrollView
           refreshControl={
@@ -43,16 +44,12 @@ export default function PlantsScreen() {
             
         ))}
       </ThemedScrollView>
-    </SafeAreaView>
+    </ThemedSafeAreaView>
   </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
   text: {
     fontSize: 32,
     padding: 12,
