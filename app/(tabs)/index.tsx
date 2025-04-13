@@ -17,26 +17,21 @@ export default function Index() {
       }, 2000);
     }, []);
     return (
-      <View style={styles.container}>
-        <StatusBar
-          backgroundColor="blue"
-          barStyle="light-content"
-        />      
-        <Text style={styles.text} >Home screen</Text>
-      </View>
+      <SafeAreaProvider> 
+      <ThemedSafeAreaView>
+        <StatusBar style="auto"/>    
+        <ThemedScrollView
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
+          <ThemedText style={styles.text}>
+            Home screen
+          </ThemedText>
+          
+        </ThemedScrollView>
+      </ThemedSafeAreaView>
+      </SafeAreaProvider>
     );
-  } else {
-    console.log('Light mode is enabled');
-    return (
-      <View style={stylesLight.container}>      
-        <StatusBar
-            backgroundColor="blue"
-            barStyle="dark-content"
-        />
-        <Text style={stylesLight.text} >Home screen</Text>
-      </View>
-    );
-  }
 }
 
 const styles = StyleSheet.create({
