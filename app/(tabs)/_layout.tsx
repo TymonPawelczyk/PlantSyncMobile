@@ -10,7 +10,7 @@ export default function TabLayout() {
     const colorScheme = useColorScheme();
     const colors = {
         text: colorScheme === 'dark' ? '#F0EAD2' : '#000000',
-        background: colorScheme === 'dark' ? '#414833' : '#D8D7D4',
+        background: colorScheme === 'dark' ? '#212529' : '#D8D7D4',
     };
   return (
     <Tabs
@@ -49,7 +49,7 @@ export default function TabLayout() {
       <Tabs.Screen name="tasks"options={{
           title: 'Tasks',
           tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-            <Ionicons name={focused ? 'clipboard-outline' : 'clipboard-outline'} color={color} size={24} />
+            <Ionicons name={focused ? 'clipboard' : 'clipboard-outline'} color={color} size={24} />
           ),
         }} />
       <Tabs.Screen

@@ -9,7 +9,8 @@ export type ThemedSafeAreaViewProps = React.ComponentProps<typeof SafeAreaView> 
 export function ThemedSafeAreaView(props: ThemedSafeAreaViewProps) {
   const colorScheme = useColorScheme();
   const colors = {
-    background: colorScheme === 'dark' ? '#414833' : '#D8D7D4',
+    background: colorScheme === 'dark' ? '#212529' : '#D8D7D4',
+    border: colorScheme === 'dark' ? '#343a40' : '#D8D7D4',
   };
 
   const { style, ...otherProps } = props;
@@ -18,7 +19,9 @@ export function ThemedSafeAreaView(props: ThemedSafeAreaViewProps) {
     <SafeAreaView
         style={[
             styles.contentContainer, // Optional base content container styles
-            { backgroundColor: colors.background }, // Apply background color from theme
+            { backgroundColor: colors.background,
+              borderColor: colors.border,
+             }, // Apply background color from theme
             style,
         ]}
       {...otherProps}
@@ -31,5 +34,6 @@ const styles = StyleSheet.create({
   contentContainer: {  
     flex: 1,
     justifyContent: 'center', 
+    borderBottomWidth: 0.2,
 }
 });
