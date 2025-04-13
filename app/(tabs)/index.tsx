@@ -1,4 +1,11 @@
-import { Text, View,  StyleSheet, Appearance, StatusBar } from 'react-native';
+import React from 'react';
+import {RefreshControl ,StyleSheet} from 'react-native';
+import { SafeAreaProvider} from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+
+import { ThemedScrollView } from '@/components/ThemedScrollView';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Index() {
   const colorScheme = Appearance.getColorScheme();
