@@ -10,7 +10,7 @@ export default function TabLayout() {
     const colorScheme = useColorScheme();
     const colors = {
         text: colorScheme === 'dark' ? '#F0EAD2' : '#000000',
-        background: colorScheme === 'dark' ? '#414833' : '#D8D7D4',
+        background: colorScheme === 'dark' ? '#212529' : '#D8D7D4',
     };
   return (
     <Tabs
