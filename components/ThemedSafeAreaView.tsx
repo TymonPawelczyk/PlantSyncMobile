@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, ViewStyle } from 'react-native';
-import { useColorScheme } from '@/hooks/useColorScheme.web';
+import { useColorScheme } from 'react-native';
 
 export type ThemedSafeAreaViewProps = React.ComponentProps<typeof SafeAreaView> & {
   style?: ViewStyle;
