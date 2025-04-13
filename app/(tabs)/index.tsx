@@ -8,9 +8,14 @@ import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { ThemedText } from '@/components/ThemedText';
 
 export default function Index() {
-  const colorScheme = Appearance.getColorScheme();
-  if (colorScheme === 'dark') {
-    console.log('Dark mode is enabled');
+  const [refreshing, setRefreshing] = React.useState(false);
+  
+    const onRefresh = React.useCallback(() => {
+      setRefreshing(true);
+      setTimeout(() => {
+        setRefreshing(false);
+      }, 2000);
+    }, []);
     return (
       <View style={styles.container}>
         <StatusBar
