@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { useColorScheme } from 'react-native';
+import { HapticTab } from '@/components/HapticTab';
 
 export default function TabLayout() {
     const colorScheme = useColorScheme();
@@ -13,6 +14,7 @@ export default function TabLayout() {
     <Tabs
     screenOptions={{
       headerShown: false,
+      tabBarButton: HapticTab,
       tabBarActiveTintColor: colors.text,
       tabBarInactiveTintColor: colors.text,
       headerStyle: {
