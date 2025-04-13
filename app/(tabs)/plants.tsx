@@ -1,10 +1,12 @@
 import React from 'react';
 import {RefreshControl ,StyleSheet} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import { SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
 import { ThemedScrollView } from '@/components/ThemedScrollView';
+import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { ThemedText } from '@/components/ThemedText';
+import PlantComponent from '@/components/ui/PlantsComponent';
 
 export default function PlantsScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -17,7 +19,7 @@ export default function PlantsScreen() {
   }, []);
   return (
     <SafeAreaProvider>
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <ThemedSafeAreaView>
       <StatusBar style="auto"/>    
       <ThemedScrollView
           refreshControl={
@@ -30,6 +32,7 @@ export default function PlantsScreen() {
             <ThemedText key={index} style={styles.items}>
               "{fruit}"
               <ThemedText style={styles.description}> "Description"</ThemedText>
+              <PlantComponent />
             </ThemedText>
         ))}
         <ThemedText style={styles.text}>
@@ -43,16 +46,12 @@ export default function PlantsScreen() {
             
         ))}
       </ThemedScrollView>
-    </SafeAreaView>
+    </ThemedSafeAreaView>
   </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
   text: {
     fontSize: 32,
     padding: 12,
@@ -62,11 +61,11 @@ const styles = StyleSheet.create({
     padding: 26,
     marginVertical: 6,
     marginHorizontal: 16,
-    borderWidth: 2,
-    borderColor: '#161a1d',
+    borderWidth: 3,
+    borderColor: '#333D29',
     borderRadius: 12,
     overflow: 'hidden',
-    shadowColor: '#1b4332',
+    shadowColor: '#333D29',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
