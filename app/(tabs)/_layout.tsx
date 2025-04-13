@@ -49,7 +49,7 @@ export default function TabLayout() {
       <Tabs.Screen name="tasks"options={{
           title: 'Tasks',
           tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-            <Ionicons name={focused ? 'clipboard-outline' : 'clipboard-outline'} color={color} size={24} />
+            <Ionicons name={focused ? 'clipboard' : 'clipboard-outline'} color={color} size={24} />
           ),
         }} />
       <Tabs.Screen
