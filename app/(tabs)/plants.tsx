@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ThemedScrollView } from '@/components/ThemedScrollView';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { ThemedText } from '@/components/ThemedText';
+import PlantComponent from '@/components/ui/PlantsComponent';
 
 export default function PlantsScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -31,6 +32,7 @@ export default function PlantsScreen() {
             <ThemedText key={index} style={styles.items}>
               "{fruit}"
               <ThemedText style={styles.description}> "Description"</ThemedText>
+              <PlantComponent />
             </ThemedText>
         ))}
         <ThemedText style={styles.text}>
