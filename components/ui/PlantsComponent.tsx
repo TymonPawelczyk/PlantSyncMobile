@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Pressable } from 'react-native';
+import { Pressable } from 'react-native';
 import { StyleSheet, ViewStyle } from 'react-native';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -21,13 +21,11 @@ export default function PlantComponent(props: ThemedPlantComponentProps) {
     const { style, contentContainerStyle, ...otherProps } = props;
 
   return (
-      <View style={[styles.container, { backgroundColor: colors.background }, style]}{...otherProps}>
-        <Pressable>
+      <Pressable style={[styles.container, { backgroundColor: colors.background }, style]}{...otherProps}>
           <ThemedText style={styles.title}>Watermelon</ThemedText>
           <ThemedText style={styles.description}>Description</ThemedText>
           <ThemedText style={styles.edit}>Edit item</ThemedText>
-        </Pressable>
-      </View>
+      </Pressable>
     );
   }
 
