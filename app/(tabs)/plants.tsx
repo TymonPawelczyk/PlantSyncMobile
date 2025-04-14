@@ -20,9 +20,9 @@ export default function PlantsScreen() {
   return (
     <SafeAreaProvider>
     <ThemedSafeAreaView>
-            <View style={styles.statusBarContainer}>
-                  <StatusBar style="auto" animated/>
-                </View>       
+        <View style={styles.statusBarContainer}>
+            <StatusBar style="auto" animated/>
+        </View>       
       <ThemedScrollView
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -55,27 +55,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 14,
     fontSize: 32,
     padding: 12,
-  },
-  items: {
-    fontSize: 18,
-    padding: 26,
-    marginVertical: 6,
-    marginHorizontal: 16,
-    borderWidth: 3,
-    borderColor: '#333D29',
-    borderRadius: 12,
-    overflow: 'hidden',
-    shadowColor: '#333D29',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
-  },
-  description: {
-    fontSize: 13,
-    padding: 6,
-    marginVertical: 6,
-    marginHorizontal: 16,
   },
   statusBarContainer: {
     borderColor: '#343a40',
