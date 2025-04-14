@@ -31,9 +31,18 @@ export default function PlantsScreen() {
           Fruits
         </ThemedText>
         <PlantComponent />
+        <PlantComponent />
+        <PlantComponent />
         <ThemedText style={styles.text}>
           Vegetables
         </ThemedText>
+        <PlantComponent />
+        <PlantComponent />
+        <PlantComponent />
+        <PlantComponent />
+        <PlantComponent />
+        <PlantComponent />
+
       </ThemedScrollView>
     </ThemedSafeAreaView>
   </SafeAreaProvider>
