@@ -23,7 +23,7 @@ export default function PlantComponent(props: ThemedPlantComponentProps) {
   return (
       <View style={[styles.container, { backgroundColor: colors.background }, style]}{...otherProps}>
         <Pressable>
-          <ThemedText style={styles.title}>Arbuz</ThemedText>
+          <ThemedText style={styles.title}>Watermelon</ThemedText>
           <ThemedText style={styles.description}>Description</ThemedText>
           <ThemedText style={styles.edit}>Edit item</ThemedText>
         </Pressable>
