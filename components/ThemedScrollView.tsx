@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, ScrollViewProps, StyleSheet, ViewStyle } from 'react-native';
-import { useColorScheme } from '@/hooks/useColorScheme.web';
+import { useColorScheme } from '@/hooks/useColorScheme';
 
 // Define props, extending ScrollViewProps
 export type ThemedScrollViewProps = ScrollViewProps & {
