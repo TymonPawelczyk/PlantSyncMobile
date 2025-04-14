@@ -10,7 +10,7 @@ export function ThemedSafeAreaView(props: ThemedSafeAreaViewProps) {
   const colorScheme = useColorScheme();
   const colors = {
     background: colorScheme === 'dark' ? '#212529' : '#D8D7D4',
-    border: colorScheme === 'dark' ? '#343a40' : '#D8D7D4',
+    border: colorScheme === 'dark' ? '#343a40' : '#adb5bd',
   };
 
   const { style, ...otherProps } = props;
