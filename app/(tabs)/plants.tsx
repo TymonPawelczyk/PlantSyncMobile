@@ -29,24 +29,11 @@ export default function PlantsScreen() {
           }>
         <ThemedText style={styles.text}>
           Fruits
-            </ThemedText>
-          {['Apple', 'Banana', 'Cherry', 'Pineapple', 'Watermelon', 'Melon'].map((fruit, index) => (
-            <ThemedText key={index} style={styles.items}>
-              "{fruit}"
-              <ThemedText style={styles.description}> "Description"</ThemedText>
-              <PlantComponent />
-            </ThemedText>
-        ))}
+        </ThemedText>
+        <PlantComponent />
         <ThemedText style={styles.text}>
           Vegetables
-            </ThemedText>
-          {['Carrot', 'Potato', 'Tomato', 'Salad' ].map((vegetable, index) => (
-            <ThemedText key={index} style={styles.items}>
-              "{vegetable}"
-              <ThemedText style={styles.description}> "Description"</ThemedText>
-            </ThemedText>
-            
-        ))}
+        </ThemedText>
       </ThemedScrollView>
     </ThemedSafeAreaView>
   </SafeAreaProvider>
@@ -55,6 +42,8 @@ export default function PlantsScreen() {
 
 const styles = StyleSheet.create({
   text: {
+    marginVertical: 4,
+    marginHorizontal: 14,
     fontSize: 32,
     padding: 12,
   },
