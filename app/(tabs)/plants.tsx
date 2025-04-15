@@ -1,5 +1,5 @@
 import React from 'react';
-import {RefreshControl ,StyleSheet} from 'react-native';
+import {RefreshControl ,StyleSheet, View, FlatList} from 'react-native';
 import { SafeAreaProvider} from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
@@ -7,6 +7,13 @@ import { ThemedScrollView } from '@/components/ThemedScrollView';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { ThemedText } from '@/components/ThemedText';
 import PlantComponent from '@/components/ui/PlantsComponent';
+
+// Mock data 
+const myPlantsData = [
+  { id: 1, name: 'Swiss Cheese Plant', species: 'Monstera Deliciosa', imageUrl: 'https://example.com/monstera.jpg', lastWatered: 'Yesterday' },
+  { id: 2, name: 'Snake Plant', species: 'Sansevieria Trifasciata', lastWatered: '3 days ago' }, // No image URL
+  { id: 3, name: 'Fiddle Leaf Fig', imageUrl: 'https://example.com/fiddle.jpg' }, // No species/lastWatered
+];
 
 export default function PlantsScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -17,34 +24,56 @@ export default function PlantsScreen() {
       setRefreshing(false);
     }, 2000);
   }, []);
+
+  const handlePlantPress = (plantId: string | number) => {
+    console.log(`Plant pressed: ${plantId}`);
+    // Navigate to detail screen, open modal, etc.
+  };
+
   return (
     <SafeAreaProvider>
     <ThemedSafeAreaView>
-      <StatusBar style="auto"/>    
+        <View style={styles.statusBarContainer}>
+            <StatusBar style="auto" animated/>
+        </View>       
       <ThemedScrollView
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
         <ThemedText style={styles.text}>
           Fruits
-            </ThemedText>
-          {['Apple', 'Banana', 'Cherry', 'Pineapple', 'Watermelon', 'Melon'].map((fruit, index) => (
-            <ThemedText key={index} style={styles.items}>
-              "{fruit}"
-              <ThemedText style={styles.description}> "Description"</ThemedText>
-              <PlantComponent />
-            </ThemedText>
-        ))}
+        </ThemedText>
+        <FlatList
+        data={myPlantsData}
+        renderItem={({ item }) => (
+          <PlantComponent
+            id={item.id}
+            name={item.name}
+            species={item.species}
+            imageUrl={item.imageUrl}
+            lastWatered={item.lastWatered}
+            onPress={handlePlantPress} // Pass the handler function
+          />
+        )}
+        keyExtractor={(item) => item.id.toString()}
+      />
         <ThemedText style={styles.text}>
           Vegetables
-            </ThemedText>
-          {['Carrot', 'Potato', 'Tomato', 'Salad' ].map((vegetable, index) => (
-            <ThemedText key={index} style={styles.items}>
-              "{vegetable}"
-              <ThemedText style={styles.description}> "Description"</ThemedText>
-            </ThemedText>
-            
-        ))}
+        </ThemedText>
+        <FlatList
+        data={myPlantsData}
+        renderItem={({ item }) => (
+          <PlantComponent
+            id={item.id}
+            name={item.name}
+            species={item.species}
+            imageUrl={item.imageUrl}
+            lastWatered={item.lastWatered}
+            onPress={handlePlantPress} // Pass the handler function
+          />
+        )}
+        keyExtractor={(item) => item.id.toString()}
+      />
       </ThemedScrollView>
     </ThemedSafeAreaView>
   </SafeAreaProvider>
@@ -53,28 +82,13 @@ export default function PlantsScreen() {
 
 const styles = StyleSheet.create({
   text: {
+    marginVertical: 4,
+    marginHorizontal: 14,
     fontSize: 32,
     padding: 12,
   },
-  items: {
-    fontSize: 18,
-    padding: 26,
-    marginVertical: 6,
-    marginHorizontal: 16,
-    borderWidth: 3,
-    borderColor: '#333D29',
-    borderRadius: 12,
-    overflow: 'hidden',
-    shadowColor: '#333D29',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
+  statusBarContainer: {
+    borderColor: '#343a40',
+    borderBottomWidth: 0.2,
   },
-  description: {
-    fontSize: 13,
-    padding: 6,
-    marginVertical: 6,
-    marginHorizontal: 16,
-  }
 });
