@@ -68,11 +68,11 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
 };
 
 const styles = StyleSheet.create({
-  container:{
-    height: 120,
-    padding: 12,
-    marginVertical: 6,
-    marginHorizontal: 14,
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    margin: 16,
     borderRadius: 8,
   },
   title: {
