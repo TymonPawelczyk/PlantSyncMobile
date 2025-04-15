@@ -1,11 +1,18 @@
 import React from 'react';
 import { StyleSheet, ViewStyle, Pressable, View, Image } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
-
 import { ThemedText } from '@/components/ThemedText';
 
-// Define props, extending ScrollViewProps
-export type ThemedPlantComponentProps =  {
+interface PlantComponentItems {
+  id: string | number;
+  name: string;
+  species?: string;
+  imageUrl?: string;
+  lastWatered?: string;
+  onPress?: (id: string | number) => void;
+}
+
+export type ThemedPlantComponentProps = {
   style?: ViewStyle;
   contentContainerStyle?: ViewStyle;
 };  
