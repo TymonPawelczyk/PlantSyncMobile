@@ -34,14 +34,38 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
     };
 
   return (
-      <Pressable style={[styles.container, { backgroundColor: colors.background }, style]}{...otherProps}>
-          <ThemedText style={styles.title}>Watermelon</ThemedText>
-          <ThemedText style={styles.description}>Description</ThemedText>
-          <ThemedText style={styles.edit}>Edit item</ThemedText>
+    <Pressable
+    style={({ pressed }) => [styles.container, { backgroundColor: colors.background },, pressed && styles.containerPressed]}
+      onPress={() => onPress?.(id)}
+    >
+      {imageUrl ? (
+        <Image source={{ uri: imageUrl }} style={styles.image} resizeMode="cover" />
+      ) : (
+        <View style={[styles.image, styles.imagePlaceholder]}>
+          <ThemedText style={styles.placeholderText}>🪴</ThemedText>
+        </View>
+      )}
+
+      <View style={[styles.detailsContainer, contentContainerStyle]}>
+        <ThemedText style={styles.title}>
+          {name}
+        </ThemedText>
+
+        {species && (
+          <ThemedText style={styles.description}>
+            Species: {species}
+          </ThemedText>
+        )}
+
+        {lastWatered && (
+          <ThemedText style={styles.description}>
+            Last Watered: {lastWatered}
+          </ThemedText>
+        )}
+      </View>
       </Pressable>
     );
-  }
-
+};
 
 const styles = StyleSheet.create({
   container:{
