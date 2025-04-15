@@ -1,7 +1,5 @@
 import React from 'react';
-import { Pressable } from 'react-native';
-import { StyleSheet, ViewStyle } from 'react-native';
-
+import { StyleSheet, ViewStyle, Pressable, View, Image } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 import { ThemedText } from '@/components/ThemedText';
