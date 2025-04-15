@@ -74,8 +74,47 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 16,
     borderRadius: 8,
+    marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
   },
-  title: {
+  containerPressed: {
+    opacity: 0.8, // Visual feedback when pressed
+  },
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginRight: 15,
+  },
+  imagePlaceholder: {
+    backgroundColor: '#e0e0e0',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  placeholderText: {
+    fontSize: 30,
+  },
+  detailsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  nameText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  detailsText: {
+    fontSize: 12,
+    color: '#555',
+  },
+  title:{
     fontSize: 16,
     fontWeight: '500',
   },
