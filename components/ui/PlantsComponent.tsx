@@ -17,8 +17,17 @@ export type ThemedPlantComponentProps = {
   contentContainerStyle?: ViewStyle;
 };  
 
-export default function PlantComponent(props: ThemedPlantComponentProps) {
-    const colorScheme = useColorScheme(); // Get system color scheme
+const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> = ({
+  id,
+  name,
+  species,
+  imageUrl,
+  lastWatered,
+  onPress,
+  style,
+  contentContainerStyle,
+}) => {
+  const colorScheme = useColorScheme();
     const colors = {
       background: colorScheme === 'dark' ? '#343a40' : '#edede9',
       text: colorScheme === 'dark' ? '#D8D7D4' : '#212529',
