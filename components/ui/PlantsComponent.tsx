@@ -32,7 +32,6 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
       background: colorScheme === 'dark' ? '#343a40' : '#edede9',
       text: colorScheme === 'dark' ? '#D8D7D4' : '#212529',
     };
-    const { style, contentContainerStyle, ...otherProps } = props;
 
   return (
       <Pressable style={[styles.container, { backgroundColor: colors.background }, style]}{...otherProps}>
