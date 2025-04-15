@@ -15,7 +15,7 @@ interface PlantComponentItems {
 export type ThemedPlantComponentProps = {
   style?: ViewStyle;
   contentContainerStyle?: ViewStyle;
-};  
+};
 
 const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> = ({
   id,
@@ -28,10 +28,10 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
   contentContainerStyle,
 }) => {
   const colorScheme = useColorScheme();
-    const colors = {
-      background: colorScheme === 'dark' ? '#343a40' : '#edede9',
-      text: colorScheme === 'dark' ? '#D8D7D4' : '#212529',
-    };
+  const colors = {
+    background: colorScheme === 'dark' ? '#343a40' : '#edede9',
+    text: colorScheme === 'dark' ? '#D8D7D4' : '#212529',
+  };
 
   return (
     <Pressable
@@ -63,8 +63,8 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
           </ThemedText>
         )}
       </View>
-      </Pressable>
-    );
+    </Pressable>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -127,3 +127,5 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
 });
+
+export default PlantComponent;
