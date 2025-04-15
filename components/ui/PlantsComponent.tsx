@@ -1,46 +1,120 @@
 import React from 'react';
-import { View, Pressable } from 'react-native';
-import { StyleSheet, ViewStyle } from 'react-native';
-
+import { StyleSheet, ViewStyle, Pressable, View, Image } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
-
 import { ThemedText } from '@/components/ThemedText';
 
-// Define props, extending ScrollViewProps
-export type ThemedPlantComponentProps =  {
+interface PlantComponentItems {
+  id: string | number;
+  name: string;
+  species?: string;
+  imageUrl?: string;
+  lastWatered?: string;
+  onPress?: (id: string | number) => void;
+}
+
+export type ThemedPlantComponentProps = {
   style?: ViewStyle;
   contentContainerStyle?: ViewStyle;
-};  
+};
 
-export default function PlantComponent(props: ThemedPlantComponentProps) {
-    const colorScheme = useColorScheme(); // Get system color scheme
-    const colors = {
-      background: colorScheme === 'dark' ? '#343a40' : '#edede9',
-      text: colorScheme === 'dark' ? '#D8D7D4' : '#212529',
-    };
-    const { style, contentContainerStyle, ...otherProps } = props;
+const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> = ({
+  id,
+  name,
+  species,
+  imageUrl,
+  lastWatered,
+  onPress,
+  style,
+  contentContainerStyle,
+}) => {
+  const colorScheme = useColorScheme();
+  const colors = {
+    background: colorScheme === 'dark' ? '#343a40' : '#edede9',
+    text: colorScheme === 'dark' ? '#D8D7D4' : '#212529',
+  };
 
   return (
-      <View style={[styles.container, { backgroundColor: colors.background }, style]}{...otherProps}>
-        <Pressable>
-          <ThemedText style={styles.title}>Watermelon</ThemedText>
-          <ThemedText style={styles.description}>Description</ThemedText>
-          <ThemedText style={styles.edit}>Edit item</ThemedText>
-        </Pressable>
-      </View>
-    );
-  }
+    <Pressable
+    style={({ pressed }) => [styles.container, { backgroundColor: colors.background },, pressed && styles.containerPressed]}
+      onPress={() => onPress?.(id)}
+    >
+      {imageUrl ? (
+        <Image source={{ uri: imageUrl }} style={styles.image} resizeMode="cover" />
+      ) : (
+        <View style={[styles.image, styles.imagePlaceholder]}>
+          <ThemedText style={styles.placeholderText}>🪴</ThemedText>
+        </View>
+      )}
 
+      <View style={[styles.detailsContainer, contentContainerStyle]}>
+        <ThemedText style={styles.title}>
+          {name}
+        </ThemedText>
+
+        {species && (
+          <ThemedText style={styles.description}>
+            Species: {species}
+          </ThemedText>
+        )}
+
+        {lastWatered && (
+          <ThemedText style={styles.description}>
+            Last Watered: {lastWatered}
+          </ThemedText>
+        )}
+      </View>
+    </Pressable>
+  );
+};
 
 const styles = StyleSheet.create({
-  container:{
-    height: 120,
-    padding: 12,
-    marginVertical: 6,
-    marginHorizontal: 14,
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    margin: 16,
     borderRadius: 8,
+    marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
   },
-  title: {
+  containerPressed: {
+    opacity: 0.8, // Visual feedback when pressed
+  },
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginRight: 15,
+  },
+  imagePlaceholder: {
+    backgroundColor: '#e0e0e0',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  placeholderText: {
+    fontSize: 30,
+  },
+  detailsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  nameText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  detailsText: {
+    fontSize: 12,
+    color: '#555',
+  },
+  title:{
     fontSize: 16,
     fontWeight: '500',
   },
@@ -53,3 +127,5 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
 });
+
+export default PlantComponent;
