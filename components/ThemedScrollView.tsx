@@ -1,6 +1,11 @@
-import React from 'react';
-import { ScrollView, ScrollViewProps, StyleSheet, ViewStyle } from 'react-native';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import React from "react";
+import {
+  ScrollView,
+  ScrollViewProps,
+  StyleSheet,
+  ViewStyle,
+} from "react-native";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 // Define props, extending ScrollViewProps
 export type ThemedScrollViewProps = ScrollViewProps & {
@@ -11,7 +16,7 @@ export type ThemedScrollViewProps = ScrollViewProps & {
 export function ThemedScrollView(props: ThemedScrollViewProps) {
   const colorScheme = useColorScheme(); // Get system color scheme
   const colors = {
-    background: colorScheme === 'dark' ? '#212529' : '#D8D7D4',
+    background: colorScheme === "dark" ? "#212529" : "#D8D7D4",
   };
   const { style, contentContainerStyle, ...otherProps } = props;
 
