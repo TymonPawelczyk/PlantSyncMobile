@@ -1,18 +1,33 @@
-import React from 'react';
-import {RefreshControl ,StyleSheet, View, FlatList} from 'react-native';
-import { SafeAreaProvider} from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
+import React from "react";
+import { RefreshControl, StyleSheet, View, FlatList } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
-import { ThemedScrollView } from '@/components/ThemedScrollView';
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
-import { ThemedText } from '@/components/ThemedText';
-import PlantComponent from '@/components/ui/PlantsComponent';
+import { ThemedScrollView } from "@/components/ThemedScrollView";
+import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
+import { ThemedText } from "@/components/ThemedText";
+import PlantComponent from "@/components/ui/PlantsComponent";
 
-// Mock data 
+// Mock data
 const myPlantsData = [
-  { id: 1, name: 'Swiss Cheese Plant', species: 'Monstera Deliciosa', imageUrl: 'https://example.com/monstera.jpg', lastWatered: 'Yesterday' },
-  { id: 2, name: 'Snake Plant', species: 'Sansevieria Trifasciata', lastWatered: '3 days ago' }, // No image URL
-  { id: 3, name: 'Fiddle Leaf Fig', imageUrl: 'https://example.com/fiddle.jpg' }, // No species/lastWatered
+  {
+    id: 1,
+    name: "Swiss Cheese Plant",
+    species: "Monstera Deliciosa",
+    imageUrl: "https://example.com/monstera.jpg",
+    lastWatered: "Yesterday",
+  },
+  {
+    id: 2,
+    name: "Snake Plant",
+    species: "Sansevieria Trifasciata",
+    lastWatered: "3 days ago",
+  }, // No image URL
+  {
+    id: 3,
+    name: "Fiddle Leaf Fig",
+    imageUrl: "https://example.com/fiddle.jpg",
+  }, // No species/lastWatered
 ];
 
 export default function PlantsScreen() {
@@ -32,51 +47,48 @@ export default function PlantsScreen() {
 
   return (
     <SafeAreaProvider>
-    <ThemedSafeAreaView>
+      <ThemedSafeAreaView>
         <View style={styles.statusBarContainer}>
-            <StatusBar style="auto" animated/>
-        </View>       
-      <ThemedScrollView
+          <StatusBar style="auto" animated />
+        </View>
+        <ThemedScrollView
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }>
-        <ThemedText style={styles.text}>
-          Fruits
-        </ThemedText>
-        <FlatList
-        data={myPlantsData}
-        renderItem={({ item }) => (
-          <PlantComponent
-            id={item.id}
-            name={item.name}
-            species={item.species}
-            imageUrl={item.imageUrl}
-            lastWatered={item.lastWatered}
-            onPress={handlePlantPress} // Pass the handler function
+          }
+        >
+          <ThemedText style={styles.text}>Fruits</ThemedText>
+          <FlatList
+            data={myPlantsData}
+            renderItem={({ item }) => (
+              <PlantComponent
+                id={item.id}
+                name={item.name}
+                species={item.species}
+                imageUrl={item.imageUrl}
+                lastWatered={item.lastWatered}
+                onPress={handlePlantPress} // Pass the handler function
+              />
+            )}
+            keyExtractor={(item) => item.id.toString()}
           />
-        )}
-        keyExtractor={(item) => item.id.toString()}
-      />
-        <ThemedText style={styles.text}>
-          Vegetables
-        </ThemedText>
-        <FlatList
-        data={myPlantsData}
-        renderItem={({ item }) => (
-          <PlantComponent
-            id={item.id}
-            name={item.name}
-            species={item.species}
-            imageUrl={item.imageUrl}
-            lastWatered={item.lastWatered}
-            onPress={handlePlantPress} // Pass the handler function
+          <ThemedText style={styles.text}>Vegetables</ThemedText>
+          <FlatList
+            data={myPlantsData}
+            renderItem={({ item }) => (
+              <PlantComponent
+                id={item.id}
+                name={item.name}
+                species={item.species}
+                imageUrl={item.imageUrl}
+                lastWatered={item.lastWatered}
+                onPress={handlePlantPress} // Pass the handler function
+              />
+            )}
+            keyExtractor={(item) => item.id.toString()}
           />
-        )}
-        keyExtractor={(item) => item.id.toString()}
-      />
-      </ThemedScrollView>
-    </ThemedSafeAreaView>
-  </SafeAreaProvider>
+        </ThemedScrollView>
+      </ThemedSafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
@@ -88,7 +100,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   statusBarContainer: {
-    borderColor: '#343a40',
+    borderColor: "#343a40",
     borderBottomWidth: 0.2,
   },
 });
