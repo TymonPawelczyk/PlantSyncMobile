@@ -1,14 +1,12 @@
 import React from "react";
-import { RefreshControl, StyleSheet, View, FlatList } from "react-native";
+import { RefreshControl, StyleSheet, View, ScrollView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 
-import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedText } from "@/components/ThemedText";
 import PlantComponent from "@/components/ui/PlantsComponent";
 
-// Mock data
 const myPlantsData = [
   {
     id: 1,
@@ -22,12 +20,12 @@ const myPlantsData = [
     name: "Snake Plant",
     species: "Sansevieria Trifasciata",
     lastWatered: "3 days ago",
-  }, // No image URL
+  },
   {
     id: 3,
     name: "Fiddle Leaf Fig",
     imageUrl: "https://example.com/fiddle.jpg",
-  }, // No species/lastWatered
+  },
 ];
 
 export default function PlantsScreen() {
@@ -35,14 +33,11 @@ export default function PlantsScreen() {
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 2000);
+    setTimeout(() => setRefreshing(false), 2000);
   }, []);
 
-  const handlePlantPress = (plantId: string | number) => {
+  const handlePlantPress = (plantId: any) => {
     console.log(`Plant pressed: ${plantId}`);
-    // Navigate to detail screen, open modal, etc.
   };
 
   return (
@@ -51,42 +46,28 @@ export default function PlantsScreen() {
         <View style={styles.statusBarContainer}>
           <StatusBar style="auto" animated />
         </View>
-        <ThemedScrollView
+        <ScrollView
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          <ThemedText style={styles.text}>Fruits</ThemedText>
-          <FlatList
-            data={myPlantsData}
-            renderItem={({ item }) => (
-              <PlantComponent
-                id={item.id}
-                name={item.name}
-                species={item.species}
-                imageUrl={item.imageUrl}
-                lastWatered={item.lastWatered}
-                onPress={handlePlantPress} // Pass the handler function
-              />
-            )}
-            keyExtractor={(item) => item.id.toString()}
-          />
-          <ThemedText style={styles.text}>Vegetables</ThemedText>
-          <FlatList
-            data={myPlantsData}
-            renderItem={({ item }) => (
-              <PlantComponent
-                id={item.id}
-                name={item.name}
-                species={item.species}
-                imageUrl={item.imageUrl}
-                lastWatered={item.lastWatered}
-                onPress={handlePlantPress} // Pass the handler function
-              />
-            )}
-            keyExtractor={(item) => item.id.toString()}
-          />
-        </ThemedScrollView>
+          {["Fruits", "Vegetables"].map((title) => (
+            <View key={title} style={styles.listContainer}>
+              <ThemedText style={styles.text}>{title}</ThemedText>
+              {myPlantsData.map((item) => (
+                <PlantComponent
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  species={item.species}
+                  imageUrl={item.imageUrl}
+                  lastWatered={item.lastWatered}
+                  onPress={(id) => handlePlantPress(id)}
+                />
+              ))}
+            </View>
+          ))}
+        </ScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
   );
@@ -102,5 +83,8 @@ const styles = StyleSheet.create({
   statusBarContainer: {
     borderColor: "#343a40",
     borderBottomWidth: 0.2,
+  },
+  listContainer: {
+    marginBottom: 20,
   },
 });
