@@ -1,0 +1,69 @@
+name: 🛠️ Feature / Fix Proposal
+description: Suggest a new feature, enhancement, or improvement
+title: "[Feature] "
+labels: [enhancement]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📝 Description
+        Please provide a clear and concise description of the feature or problem.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: |
+        E.g. I’d like to add the ability to export data to CSV so users can analyze it offline.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 💡 Proposed Solutions
+        Suggest possible ways to solve the issue.
+
+  - type: textarea
+    id: solutions
+    attributes:
+      label: Proposed Solutions
+      placeholder: |
+        - Solution 1: ...
+        - Solution 2: ...
+        - Alternative: ...
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🏷️ Priority
+        How urgent or important is this?
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - 🔵 Low – Minor issue, not urgent
+        - 🟡 Medium – Should be addressed soon
+        - 🟠 High – Important and time-sensitive
+        - 🔴 Critical – Urgent, blocking other tasks or users
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🧩 Additional Info
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      placeholder: Add any links, screenshots, references to related issues, etc.
+    validations:
+      required: false
