@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, ViewStyle, Pressable, View, Image } from 'react-native';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { ThemedText } from '@/components/ThemedText';
+import React from "react";
+import { StyleSheet, ViewStyle, Pressable, View, Image } from "react-native";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { ThemedText } from "@/components/ThemedText";
 
 interface PlantComponentItems {
   id: string | number;
@@ -17,7 +17,9 @@ export type ThemedPlantComponentProps = {
   contentContainerStyle?: ViewStyle;
 };
 
-const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> = ({
+const PlantComponent: React.FC<
+  PlantComponentItems & ThemedPlantComponentProps
+> = ({
   id,
   name,
   species,
@@ -29,17 +31,26 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
 }) => {
   const colorScheme = useColorScheme();
   const colors = {
-    background: colorScheme === 'dark' ? '#343a40' : '#edede9',
-    text: colorScheme === 'dark' ? '#D8D7D4' : '#212529',
+    background: colorScheme === "dark" ? "#343a40" : "#edede9",
+    text: colorScheme === "dark" ? "#D8D7D4" : "#212529",
   };
 
   return (
     <Pressable
-    style={({ pressed }) => [styles.container, { backgroundColor: colors.background },, pressed && styles.containerPressed]}
+      style={({ pressed }) => [
+        styles.container,
+        { backgroundColor: colors.background },
+        ,
+        pressed && styles.containerPressed,
+      ]}
       onPress={() => onPress?.(id)}
     >
       {imageUrl ? (
-        <Image source={{ uri: imageUrl }} style={styles.image} resizeMode="cover" />
+        <Image
+          source={{ uri: imageUrl }}
+          style={styles.image}
+          resizeMode="cover"
+        />
       ) : (
         <View style={[styles.image, styles.imagePlaceholder]}>
           <ThemedText style={styles.placeholderText}>🪴</ThemedText>
@@ -47,14 +58,10 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
       )}
 
       <View style={[styles.detailsContainer, contentContainerStyle]}>
-        <ThemedText style={styles.title}>
-          {name}
-        </ThemedText>
+        <ThemedText style={styles.title}>{name}</ThemedText>
 
         {species && (
-          <ThemedText style={styles.description}>
-            Species: {species}
-          </ThemedText>
+          <ThemedText style={styles.description}>Species: {species}</ThemedText>
         )}
 
         {lastWatered && (
@@ -69,13 +76,13 @@ const PlantComponent: React.FC<PlantComponentItems & ThemedPlantComponentProps> 
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 10,
     margin: 16,
     borderRadius: 8,
     marginBottom: 10,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
@@ -94,37 +101,37 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   imagePlaceholder: {
-    backgroundColor: '#e0e0e0',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#e0e0e0",
+    justifyContent: "center",
+    alignItems: "center",
   },
   placeholderText: {
     fontSize: 30,
   },
   detailsContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   nameText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 4,
   },
   detailsText: {
     fontSize: 12,
-    color: '#555',
+    color: "#555",
   },
-  title:{
+  title: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   description: {
     fontSize: 14,
-    fontWeight: '300',
+    fontWeight: "300",
   },
   edit: {
     fontSize: 12,
-    fontWeight: '300',
+    fontWeight: "300",
   },
 });
 
