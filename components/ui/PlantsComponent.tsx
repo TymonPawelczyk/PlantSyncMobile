@@ -53,7 +53,9 @@ const PlantComponent: React.FC<
         />
       ) : (
         <View style={[styles.image, styles.imagePlaceholder]}>
-          <ThemedText style={styles.placeholderText}>🪴</ThemedText>
+          {imageUrl === undefined && (
+            <ThemedText style={styles.placeholderText}>?</ThemedText>
+          )}
         </View>
       )}
 
@@ -107,6 +109,7 @@ const styles = StyleSheet.create({
   },
   placeholderText: {
     fontSize: 30,
+    color: "#000",
   },
   detailsContainer: {
     flex: 1,
