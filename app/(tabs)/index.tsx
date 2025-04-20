@@ -9,38 +9,38 @@ import { ThemedText } from "@/components/ThemedText";
 
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
-  
-    const onRefresh = React.useCallback(() => {
-      setRefreshing(true);
-      setTimeout(() => {
-        setRefreshing(false);
-      }, 2000);
-    }, []);
-    return (
-      <SafeAreaProvider> 
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+  return (
+    <SafeAreaProvider>
       <ThemedSafeAreaView>
-          <View style={styles.statusBarContainer}>
+        <View style={styles.statusBarContainer}>
           <StatusBar style="auto" animated />
-          </View>    
+        </View>
         <ThemedScrollView
-            refreshControl={
-              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
           <ThemedText style={styles.text}>Home screen</ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
-      </SafeAreaProvider>
-    );
+    </SafeAreaProvider>
+  );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     padding: 12,
   },
   statusBarContainer: {
-    borderColor: '#343a40',
+    borderColor: "#343a40",
     borderBottomWidth: 0.2,
   },
 });
