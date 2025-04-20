@@ -14,7 +14,7 @@ export default function Settings() {
           <StatusBar style="auto" animated />
         </View>
         <ThemedScrollView>
-          <ThemedText style={styles.text}>Setttings</ThemedText>
+          <ThemedText style={styles.text}>Settings</ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
