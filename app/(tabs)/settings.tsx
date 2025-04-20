@@ -8,9 +8,16 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Settings() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text} >Settings</Text>
-    </View>
+    <SafeAreaProvider>
+      <ThemedSafeAreaView>
+        <View>
+          <StatusBar style="auto" animated />
+        </View>
+        <ThemedScrollView>
+          <ThemedText style={styles.text}>Setttings</ThemedText>
+        </ThemedScrollView>
+      </ThemedSafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
