@@ -24,16 +24,17 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#25292e",
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
-    color: '#fff',
+    fontSize: 32,
+    padding: 12,
+    textAlign: "center",
   },
-  button: {
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
+  statusBarContainer: {
+    borderColor: "#343a40",
+    borderBottomWidth: 0.2,
   },
 });
