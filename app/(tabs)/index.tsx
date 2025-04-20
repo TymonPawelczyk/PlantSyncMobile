@@ -1,11 +1,11 @@
-import React from 'react';
-import {RefreshControl ,StyleSheet, View} from 'react-native';
-import { SafeAreaProvider} from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
+import React from "react";
+import { RefreshControl, StyleSheet, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
-import { ThemedScrollView } from '@/components/ThemedScrollView';
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
-import { ThemedText } from '@/components/ThemedText';
+import { ThemedScrollView } from "@/components/ThemedScrollView";
+import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
+import { ThemedText } from "@/components/ThemedText";
 
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
