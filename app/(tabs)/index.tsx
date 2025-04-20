@@ -25,11 +25,9 @@ export default function Index() {
         <ThemedScrollView
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            }>
-          <ThemedText style={styles.text}>
-            Home screen
-          </ThemedText>
-          
+          }
+        >
+          <ThemedText style={styles.text}>Home screen</ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
       </SafeAreaProvider>
