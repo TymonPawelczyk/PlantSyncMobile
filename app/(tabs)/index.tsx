@@ -20,7 +20,7 @@ export default function Index() {
       <SafeAreaProvider> 
       <ThemedSafeAreaView>
           <View style={styles.statusBarContainer}>
-            <StatusBar style="auto" animated/>
+          <StatusBar style="auto" animated />
           </View>    
         <ThemedScrollView
             refreshControl={
