@@ -29,7 +29,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    color: '#fff',
-  }
-  
+    fontSize: 32,
+    padding: 12,
+  },
+  statusBarContainer: {
+    borderColor: "#343a40",
+    borderBottomWidth: 0.2,
+  },
 });
