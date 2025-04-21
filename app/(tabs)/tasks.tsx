@@ -1,4 +1,10 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
+import { ThemedScrollView } from "@/components/ThemedScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function TasksScreen() {
   return (
