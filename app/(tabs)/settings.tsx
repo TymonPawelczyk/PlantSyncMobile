@@ -10,7 +10,7 @@ export default function Settings() {
   return (
     <SafeAreaProvider>
       <ThemedSafeAreaView>
-        <View>
+        <View style={styles.statusBarContainer}>
           <StatusBar style="auto" animated />
         </View>
         <ThemedScrollView>
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     padding: 12,
-    textAlign: "center",
   },
   statusBarContainer: {
     borderColor: "#343a40",
