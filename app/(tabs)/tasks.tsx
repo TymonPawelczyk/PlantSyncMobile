@@ -8,11 +8,19 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function TasksScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Tasks screen</Text>
-    </View>
+    <SafeAreaProvider>
+      <ThemedSafeAreaView>
+        <View>
+          <StatusBar style="auto" animated />
+        </View>
+        <ThemedScrollView>
+          <ThemedText style={styles.text}>Tasks</ThemedText>
+        </ThemedScrollView>
+      </ThemedSafeAreaView>
+    </SafeAreaProvider>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
