@@ -10,7 +10,7 @@ export default function TasksScreen() {
   return (
     <SafeAreaProvider>
       <ThemedSafeAreaView>
-        <View>
+        <View style={styles.statusBarContainer}>
           <StatusBar style="auto" animated />
         </View>
         <ThemedScrollView>
