@@ -51,7 +51,7 @@ export default function PlantsScreen() {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          {["Fruits", "Vegetables"].map((title) => (
+          {["Fruits", "Vegetables", "Spices"].map((title) => (
             <View key={title} style={styles.listContainer}>
               <ThemedText style={styles.text}>{title}</ThemedText>
               {myPlantsData.map((item) => (
