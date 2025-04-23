@@ -4,6 +4,7 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { ThemedText } from "@/components/ThemedText";
 
 import EditPlantComponent from "./EditPlantComponent";
+import DeletePlantComponent from "./DeletePlantComponent";
 
 interface PlantComponentItems {
   id: string | number;
@@ -75,6 +76,7 @@ const PlantComponent: React.FC<
         )}
       </View>
       <EditPlantComponent/>
+      <DeletePlantComponent/>
     </Pressable>
   );
 };
