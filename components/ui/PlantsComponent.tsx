@@ -3,6 +3,8 @@ import { StyleSheet, ViewStyle, Pressable, View, Image } from "react-native";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { ThemedText } from "@/components/ThemedText";
 
+import EditPlantComponent from "./EditPlantComponent";
+
 interface PlantComponentItems {
   id: string | number;
   name: string;
@@ -72,6 +74,7 @@ const PlantComponent: React.FC<
           </ThemedText>
         )}
       </View>
+      <EditPlantComponent/>
     </Pressable>
   );
 };
