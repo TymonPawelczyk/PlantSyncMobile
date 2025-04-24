@@ -12,19 +12,16 @@ const myPlantsData = [
     id: 1,
     name: "Swiss Cheese Plant",
     species: "Monstera Deliciosa",
-    imageUrl: "https://example.com/monstera.jpg",
     lastWatered: "Yesterday",
   },
   {
     id: 2,
     name: "Snake Plant",
-    species: "Sansevieria Trifasciata",
     lastWatered: "3 days ago",
   },
   {
     id: 3,
     name: "Fiddle Leaf Fig",
-    imageUrl: "https://example.com/fiddle.jpg",
   },
 ];
 
