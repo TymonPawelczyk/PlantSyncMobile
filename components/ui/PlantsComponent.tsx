@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   detailsContainer: {
-    flex: 1,
+    flex: 3,
     justifyContent: "center",
   },
   nameText: {
