@@ -12,19 +12,19 @@ const myPlantsData = [
     id: 1,
     name: "Swiss Cheese Plant",
     species: "Monstera Deliciosa",
-    imageUrl: "https://example.com/monstera.jpg",
     lastWatered: "Yesterday",
   },
   {
     id: 2,
     name: "Snake Plant",
-    species: "Sansevieria Trifasciata",
     lastWatered: "3 days ago",
   },
   {
     id: 3,
     name: "Fiddle Leaf Fig",
-    imageUrl: "https://example.com/fiddle.jpg",
+    species: "Ficus Lyrata",
+    lastWatered: "Last week",
+    imageUrl: "https://www.thesill.com/cdn/shop/files/the-sill_Fiddle-Leaf-Fig-Tree_Large_Pallas_Cream_Variant_8735f6bb-bb33-4d96-9858-13dc076566d8.jpg?v=1744404801&width=1946"
   },
 ];
 
@@ -51,7 +51,7 @@ export default function PlantsScreen() {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          {["Fruits", "Vegetables"].map((title) => (
+          {["Fruits", "Vegetables", "Spices"].map((title) => (
             <View key={title} style={styles.listContainer}>
               <ThemedText style={styles.text}>{title}</ThemedText>
               {myPlantsData.map((item) => (
