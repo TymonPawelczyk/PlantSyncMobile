@@ -21,6 +21,9 @@ export default function EditPlantComponent() {
 }
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    height: 50,
+    margin: 5,
     backgroundColor: "#25292e",
     alignItems: "center",
     justifyContent: "center",
