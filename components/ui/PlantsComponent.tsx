@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, ViewStyle, Pressable, View, Image } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { ThemedText } from "@/components/ThemedText";
 
@@ -57,7 +58,12 @@ const PlantComponent: React.FC<
       ) : (
         <View style={[styles.image, styles.imagePlaceholder]}>
           {imageUrl === undefined && (
-            <ThemedText style={styles.placeholderText}>?</ThemedText>
+            <Ionicons
+              name="leaf-outline"
+              size={30}
+              color={colors.text}
+              style={styles.placeholderText}
+            />
           )}
         </View>
       )}
@@ -75,8 +81,8 @@ const PlantComponent: React.FC<
           </ThemedText>
         )}
       </View>
-      <EditPlantComponent/>
-      <DeletePlantComponent/>
+      <EditPlantComponent />
+      <DeletePlantComponent />
     </Pressable>
   );
 };
