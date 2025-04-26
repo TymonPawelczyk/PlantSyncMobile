@@ -14,7 +14,7 @@ export default function EditPlantComponent() {
       }}
     >
       <Text style={{ color: "#D8D7D4", fontSize: 24 }}>
-        <Ionicons name="pencil" size={24} color="#D8D7D4" />
+        <Ionicons name="pencil" size={18} color="#D8D7D4" />
       </Text>
     </Pressable>
   );
@@ -22,7 +22,7 @@ export default function EditPlantComponent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: 50,
+    height: 40,
     margin: 5,
     backgroundColor: "#25292e",
     alignItems: "center",
