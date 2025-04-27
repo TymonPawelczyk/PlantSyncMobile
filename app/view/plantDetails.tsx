@@ -4,6 +4,8 @@ import { Stack } from "expo-router"; // Import Stack
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+import { useColorScheme } from "@/hooks/useColorScheme";
+
 import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedText } from "@/components/ThemedText";
 
