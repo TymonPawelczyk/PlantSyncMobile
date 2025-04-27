@@ -9,20 +9,34 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedText } from "@/components/ThemedText";
 
-export default function PlantDetails() {
+export default function PlantDetails(plantId: string | number) {
   const navigation = useNavigation();
+  const iconColors = useColorScheme() === "dark" ? "#D8D7D4" : "#212529";
   return (
     <>
       <Stack.Screen
         options={{
-          title: "Plant Details",
-          headerStyle: {},
+          title: `Plant Details`,
+          headerTitle(props) {
+            return (
+              <ThemedText style={styles.title} {...props}>
+                Plant Details
+              </ThemedText>
+            );
+          },
+          headerTitleStyle: {
+            color: "auto",
+          },
+          headerStyle: {
+            backgroundColor:
+              useColorScheme() === "dark" ? "#212529" : "#D8D7D4",
+          },
           headerLeft: () => {
             return (
               <Ionicons
                 name="arrow-back"
                 size={24}
-                color="auto"
+                color={iconColors}
                 onPress={() => {
                   navigation.goBack();
                 }}
@@ -33,7 +47,6 @@ export default function PlantDetails() {
       />
       <ThemedScrollView>
         <View style={styles.container}>
-          <ThemedText style={styles.title}>Plant Details</ThemedText>
           <ThemedText>Details about the plant will go here.</ThemedText>
         </View>
       </ThemedScrollView>
