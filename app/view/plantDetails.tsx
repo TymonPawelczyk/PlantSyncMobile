@@ -4,6 +4,9 @@ import { Stack } from "expo-router"; // Import Stack
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+import { ThemedScrollView } from "@/components/ThemedScrollView";
+import { ThemedText } from "@/components/ThemedText";
+
 export default function PlantDetails() {
   const navigation = useNavigation();
   return (
@@ -11,12 +14,15 @@ export default function PlantDetails() {
       <Stack.Screen
         options={{
           title: "Plant Details",
+          headerStyle: {
+            
+          },
           headerLeft: () => {
             return (
               <Ionicons
                 name="arrow-back"
                 size={24}
-                color="black"
+                color="auto"
                 onPress={() => {
                   navigation.goBack();
                 }}
@@ -25,23 +31,21 @@ export default function PlantDetails() {
           },
         }}
       />
-      <View style={styles.container}>
-        <Text style={styles.title}>Plant Details Screen</Text>
-        <Text>
-          This is where you can view and edit the details of your plant.
-        </Text>
-      </View>
+      <ThemedScrollView>
+        <View style={styles.container}>
+          <ThemedText style={styles.title}>Plant Details</ThemedText>
+          <ThemedText>Details about the plant will go here.</ThemedText>
+        </View>
+      </ThemedScrollView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-    backgroundColor: "#fff",
   },
   title: {
     fontSize: 24,
