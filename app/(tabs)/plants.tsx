@@ -2,6 +2,7 @@ import React from "react";
 import { RefreshControl, StyleSheet, View, ScrollView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { useRouter } from "expo-router";
 
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedText } from "@/components/ThemedText";
@@ -24,7 +25,8 @@ const myPlantsData = [
     name: "Fiddle Leaf Fig",
     species: "Ficus Lyrata",
     lastWatered: "Last week",
-    imageUrl: "https://www.thesill.com/cdn/shop/files/the-sill_Fiddle-Leaf-Fig-Tree_Large_Pallas_Cream_Variant_8735f6bb-bb33-4d96-9858-13dc076566d8.jpg?v=1744404801&width=1946"
+    imageUrl:
+      "https://www.thesill.com/cdn/shop/files/the-sill_Fiddle-Leaf-Fig-Tree_Large_Pallas_Cream_Variant_8735f6bb-bb33-4d96-9858-13dc076566d8.jpg?v=1744404801&width=1946",
   },
 ];
 
@@ -36,9 +38,10 @@ export default function PlantsScreen() {
     setTimeout(() => setRefreshing(false), 2000);
   }, []);
 
-  const handlePlantPress = (plantId: any) => {
-    console.log(`Plant pressed: ${plantId}`);
-  };
+  const router = useRouter();
+  function gotoPlantDetails() {
+    router.navigate("/view/plantDetails");
+  }
 
   return (
     <SafeAreaProvider>
@@ -62,7 +65,10 @@ export default function PlantsScreen() {
                   species={item.species}
                   imageUrl={item.imageUrl}
                   lastWatered={item.lastWatered}
-                  onPress={(id) => handlePlantPress(id)}
+                  onPress={(id) => {
+                    console.log("Pressed plant with id:", id);
+                    gotoPlantDetails();
+                  }}
                 />
               ))}
             </View>

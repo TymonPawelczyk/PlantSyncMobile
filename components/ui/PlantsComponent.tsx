@@ -1,10 +1,9 @@
 import React from "react";
 import { StyleSheet, ViewStyle, Pressable, View, Image } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { ThemedText } from "@/components/ThemedText";
 
-import EditPlantComponent from "./EditPlantComponent";
 import DeletePlantComponent from "./DeletePlantComponent";
 
 interface PlantComponentItems {
@@ -81,7 +80,6 @@ const PlantComponent: React.FC<
           </ThemedText>
         )}
       </View>
-      <EditPlantComponent />
       <DeletePlantComponent />
     </Pressable>
   );
