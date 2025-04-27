@@ -2,6 +2,8 @@ import React from "react";
 import { RefreshControl, StyleSheet, View, ScrollView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { useRouter } from "expo-router";
+
 
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedText } from "@/components/ThemedText";
@@ -40,6 +42,10 @@ export default function PlantsScreen() {
   const handlePlantPress = (plantId: any) => {
     console.log(`Plant pressed: ${plantId}`);
   };
+  const router = useRouter();
+    function gotoPlantDetails() {
+      router.navigate("/view/plantDetails");
+    }
 
   return (
     <SafeAreaProvider>
@@ -63,7 +69,9 @@ export default function PlantsScreen() {
                   species={item.species}
                   imageUrl={item.imageUrl}
                   lastWatered={item.lastWatered}
-                  onPress={(id) => handlePlantPress(id)}
+                  onPress={() => {
+                    gotoPlantDetails();
+                  }}
                 />
               ))}
             </View>
