@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Stack } from "expo-router"; // Import Stack
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -14,9 +14,7 @@ export default function PlantDetails() {
       <Stack.Screen
         options={{
           title: "Plant Details",
-          headerStyle: {
-            
-          },
+          headerStyle: {},
           headerLeft: () => {
             return (
               <Ionicons
