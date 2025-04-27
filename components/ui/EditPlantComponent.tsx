@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, Pressable } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useNavigation } from "expo-router";
 
 import PlantDetails from "@/app/view/plantDetails";
 
