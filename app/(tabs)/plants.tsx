@@ -4,7 +4,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 
-
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedText } from "@/components/ThemedText";
 import PlantComponent from "@/components/ui/PlantsComponent";
@@ -43,9 +42,9 @@ export default function PlantsScreen() {
     console.log(`Plant pressed: ${plantId}`);
   };
   const router = useRouter();
-    function gotoPlantDetails() {
-      router.navigate("/view/plantDetails");
-    }
+  function gotoPlantDetails() {
+    router.navigate("/view/plantDetails");
+  }
 
   return (
     <SafeAreaProvider>
