@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, Text, Pressable } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+import PlantDetails from "@/app/view/plantDetails";
+
 export default function EditPlantComponent() {
   return (
     <Pressable
