@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function PlantDetails() {
+  const navigation = useNavigation();
   return (
     <>
       <Stack.Screen options={{ title: "Plant Details", headerShown: false }} />
