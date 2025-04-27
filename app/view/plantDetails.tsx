@@ -5,7 +5,7 @@ import { Stack } from "expo-router"; // Import Stack
 export default function PlantDetails() {
   return (
     <>
-      <Stack.Screen options={{ title: "Plant Details" }} />
+      <Stack.Screen options={{ title: "Plant Details", headerShown: false }} />
       <View style={styles.container}>
         <Text style={styles.title}>Plant Details Screen</Text>
         <Text>
