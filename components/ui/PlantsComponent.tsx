@@ -80,7 +80,6 @@ const PlantComponent: React.FC<
           </ThemedText>
         )}
       </View>
-      {/* <EditPlantComponent /> */}
       <DeletePlantComponent />
     </Pressable>
   );
