@@ -8,7 +8,23 @@ export default function PlantDetails() {
   const navigation = useNavigation();
   return (
     <>
-      <Stack.Screen options={{ title: "Plant Details", headerShown: false }} />
+      <Stack.Screen
+        options={{
+          title: "Plant Details",
+          headerLeft: () => {
+            return (
+              <Ionicons
+                name="arrow-back"
+                size={24}
+                color="black"
+                onPress={() => {
+                  navigation.goBack();
+                }}
+              />
+            );
+          },
+        }}
+      />
       <View style={styles.container}>
         <Text style={styles.title}>Plant Details Screen</Text>
         <Text>
