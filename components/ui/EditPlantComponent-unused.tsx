@@ -1,8 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, Pressable } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRouter } from "expo-router";
 
 export default function EditPlantComponent() {
+  const router = useRouter();
+  function gotoPlantDetails() {
+    router.navigate("/view/plantDetails");
+  }
   return (
     <Pressable
       style={({ pressed }) => [
@@ -10,7 +15,7 @@ export default function EditPlantComponent() {
         { backgroundColor: pressed ? "#343a40" : "#25292e" },
       ]}
       onPress={() => {
-        console.log("Edit Plant Pressed");
+        gotoPlantDetails();
       }}
     >
       <Text style={{ color: "#D8D7D4", fontSize: 24 }}>
