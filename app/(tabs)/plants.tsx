@@ -38,9 +38,6 @@ export default function PlantsScreen() {
     setTimeout(() => setRefreshing(false), 2000);
   }, []);
 
-  const handlePlantPress = (plantId: any) => {
-    console.log(`Plant pressed: ${plantId}`);
-  };
   const router = useRouter();
   function gotoPlantDetails() {
     router.navigate("/view/plantDetails");
