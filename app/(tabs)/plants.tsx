@@ -65,7 +65,8 @@ export default function PlantsScreen() {
                   species={item.species}
                   imageUrl={item.imageUrl}
                   lastWatered={item.lastWatered}
-                  onPress={() => {
+                  onPress={(id) => {
+                    console.log("Pressed plant with id:", id);
                     gotoPlantDetails();
                   }}
                 />
