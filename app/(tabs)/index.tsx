@@ -2,6 +2,7 @@ import React from "react";
 import { RefreshControl, StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import * as Location from "expo-location";
 
 import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
