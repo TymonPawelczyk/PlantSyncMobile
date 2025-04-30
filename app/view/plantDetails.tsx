@@ -47,7 +47,7 @@ export default function PlantDetails(plantId: string | number) {
       />
       <ThemedScrollView>
         <View style={styles.container}>
-          <ThemedText>Details about the plant will go here.</ThemedText>
+          <ThemedText style={styles.text}>Details about the plant will go here.</ThemedText>
         </View>
       </ThemedScrollView>
     </>
@@ -64,4 +64,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  text: {
+    fontSize: 16,
+    fontWeight: "200",
+  }
 });
