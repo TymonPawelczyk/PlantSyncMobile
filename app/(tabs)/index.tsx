@@ -27,7 +27,8 @@ export default function Index() {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
-          <ThemedText style={styles.text}>Home screen</ThemedText>
+          <ThemedText style={styles.title}>Home screen</ThemedText>
+          <ThemedText style={styles.text}>Location: </ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
@@ -35,8 +36,13 @@ export default function Index() {
 }
 
 export const styles = StyleSheet.create({
-  text: {
+  title: {
     fontSize: 32,
+    padding: 12,
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "300",
     padding: 12,
   },
   statusBarContainer: {
