@@ -10,6 +10,7 @@ import { ThemedText } from "@/components/ThemedText";
 
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
+  let text = "Waiting..";
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
