@@ -2,7 +2,6 @@ import React from "react";
 import { RefreshControl, StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import * as Location from "expo-location";
 
 import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
@@ -10,7 +9,6 @@ import { ThemedText } from "@/components/ThemedText";
 
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
-  let text = "Waiting..";
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -30,7 +28,7 @@ export default function Index() {
           }
         >
           <ThemedText style={styles.title}>Home screen</ThemedText>
-          <ThemedText style={styles.text}>Location: {text}</ThemedText>
+          <ThemedText style={styles.text}>Location: </ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
