@@ -50,11 +50,12 @@ export default function Index() {
       const currentLocation = await Location.getCurrentPositionAsync({});
       setLocation(currentLocation.coords);
       setErrorMsg(null);
+      await getWeather(currentLocation.coords);
     } catch (e) {
       console.error(e);
       setErrorMsg("Failed to get location");
     }
-  }, []);
+  }, [getWeather]);
 
   React.useEffect(() => {
     getLocation();
