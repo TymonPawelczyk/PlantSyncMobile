@@ -20,10 +20,9 @@ export default function Index() {
   const [weatherError, setWeatherError] = React.useState<string | null>(null);
 
   const getWeather = React.useCallback(
-    async (coords: Location.LocationObjectCoords) => {
+    async (coordinates: Location.LocationObjectCoords) => {
       try {
-        const url =
-          `https://api.open-meteo.com/v1/forecast?latitude=${coords.latitude}&longitude=${coords.longitude}&current=temperature_2m&timezone=auto`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&current=temperature_2m&timezone=auto`;
         const res = await fetch(url);
         const data = await res.json();
         const temp = data?.current?.temperature_2m;
