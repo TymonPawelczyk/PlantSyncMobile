@@ -13,6 +13,32 @@ export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
   const [location, setLocation] = React.useState<Location.LocationObjectCoords | null>(null);
   const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
+  const [weather, setWeather] = React.useState<string | null>(null);
+  const [weatherError, setWeatherError] = React.useState<string | null>(null);
+
+  const getWeather = React.useCallback(
+    async (coords: Location.LocationObjectCoords) => {
+      try {
+        const url =
+          `https://api.open-meteo.com/v1/forecast?latitude=${coords.latitude}&longitude=${coords.longitude}&current=temperature_2m&timezone=auto`;
+        const res = await fetch(url);
+        const data = await res.json();
+        const temp = data?.current?.temperature_2m;
+        if (typeof temp === "number") {
+          setWeather(`${temp}°C`);
+          setWeatherError(null);
+        } else {
+          setWeather(null);
+          setWeatherError("No weather data");
+        }
+      } catch (e) {
+        console.error(e);
+        setWeather(null);
+        setWeatherError("Failed to get weather");
+      }
+    },
+    []
+  );
 
   const getLocation = React.useCallback(async () => {
     try {
