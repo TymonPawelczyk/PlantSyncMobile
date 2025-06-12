@@ -50,12 +50,22 @@ export default function Index() {
         return;
       }
       const currentLocation = await Location.getCurrentPositionAsync({});
-      setLocation(currentLocation.coords);
+      setCoords(currentLocation.coords);
       setErrorMsg(null);
+      const geocode = await Location.reverseGeocodeAsync(
+        currentLocation.coords
+      );
+      const first = geocode[0];
+      if (first) {
+        setLocationName(first.city ?? first.region ?? first.name ?? null);
+      } else {
+        setLocationName(null);
+      }
       await getWeather(currentLocation.coords);
     } catch (e) {
       console.error(e);
       setErrorMsg("Failed to get location");
+      setLocationName(null);
     }
   }, [getWeather]);
 
