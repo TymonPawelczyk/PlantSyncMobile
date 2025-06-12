@@ -11,7 +11,10 @@ import * as Location from "expo-location";
 
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
-  const [location, setLocation] = React.useState<Location.LocationObjectCoords | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [coords, setCoords] =
+    React.useState<Location.LocationObjectCoords | null>(null);
+  const [locationName, setLocationName] = React.useState<string | null>(null);
   const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
   const [weather, setWeather] = React.useState<string | null>(null);
   const [weatherError, setWeatherError] = React.useState<string | null>(null);
