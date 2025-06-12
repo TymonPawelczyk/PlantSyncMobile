@@ -92,8 +92,8 @@ export default function Index() {
           }
         >
           <ThemedText style={styles.title}>Home screen</ThemedText>
+          <ThemedText style={styles.text}>Location: {locationText}</ThemedText>
           <ThemedText style={styles.text}>Weather: {weatherText}</ThemedText>
-          <ThemedText style={styles.text}>Temperature: {}  </ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
