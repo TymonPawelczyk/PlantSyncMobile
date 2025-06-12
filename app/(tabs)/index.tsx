@@ -24,6 +24,11 @@ export default function Index() {
       try {
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&current=temperature_2m&timezone=auto`;
         const res = await fetch(url);
+        if (!res.ok) {
+          setWeather(null);
+          setWeatherError(`Failed to fetch weather: ${res.status} ${res.statusText}`);
+          return;
+        }
         const data = await res.json();
         const temp = data?.current?.temperature_2m;
         if (typeof temp === "number") {
