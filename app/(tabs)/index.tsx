@@ -77,6 +77,7 @@ export default function Index() {
     setRefreshing(true);
     getLocation().finally(() => setRefreshing(false));
   }, [getLocation]);
+  const locationText = locationName ?? errorMsg ?? "Getting location...";
   const weatherText = weather ?? weatherError ?? "Getting weather...";
 
   return (
