@@ -7,6 +7,8 @@ import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedText } from "@/components/ThemedText";
 
+import * as Location from "expo-location";
+
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
 
