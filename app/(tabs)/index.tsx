@@ -37,10 +37,14 @@ export default function Index() {
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 2000);
-  }, []);
+    getLocation().finally(() => setRefreshing(false));
+  }, [getLocation]);
+  const locationText = location
+    ? `Lat: ${location.latitude.toFixed(3)}, Lon: ${location.longitude.toFixed(
+        3
+      )}`
+    : errorMsg ?? "Getting location...";
+
   return (
     <SafeAreaProvider>
       <ThemedSafeAreaView>
