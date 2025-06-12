@@ -11,8 +11,7 @@ import * as Location from "expo-location";
 
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
-  const [location, setLocation] =
-    React.useState<Location.LocationObjectCoords | null>(null);
+  const [location, setLocation] = React.useState<Location.LocationObjectCoords | null>(null);
   const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
 
   const getLocation = React.useCallback(async () => {
