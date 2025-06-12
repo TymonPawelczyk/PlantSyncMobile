@@ -11,6 +11,29 @@ import * as Location from "expo-location";
 
 export default function Index() {
   const [refreshing, setRefreshing] = React.useState(false);
+  const [location, setLocation] =
+    React.useState<Location.LocationObjectCoords | null>(null);
+  const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
+
+  const getLocation = React.useCallback(async () => {
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission denied");
+        return;
+      }
+      const currentLocation = await Location.getCurrentPositionAsync({});
+      setLocation(currentLocation.coords);
+      setErrorMsg(null);
+    } catch (e) {
+      console.error(e);
+      setErrorMsg("Failed to get location");
+    }
+  }, []);
+
+  React.useEffect(() => {
+    getLocation();
+  }, [getLocation]);
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
