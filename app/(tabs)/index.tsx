@@ -70,6 +70,7 @@ export default function Index() {
         3
       )}`
     : errorMsg ?? "Getting location...";
+  const weatherText = weather ?? weatherError ?? "Getting weather...";
 
   return (
     <SafeAreaProvider>
@@ -84,6 +85,7 @@ export default function Index() {
         >
           <ThemedText style={styles.title}>Home screen</ThemedText>
           <ThemedText style={styles.text}>Location: {locationText}</ThemedText>
+          <ThemedText style={styles.text}>Weather: {weatherText}</ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
