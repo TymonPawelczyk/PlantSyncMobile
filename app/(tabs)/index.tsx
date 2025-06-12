@@ -65,11 +65,6 @@ export default function Index() {
     setRefreshing(true);
     getLocation().finally(() => setRefreshing(false));
   }, [getLocation]);
-  const locationText = location
-    ? `Lat: ${location.latitude.toFixed(3)}, Lon: ${location.longitude.toFixed(
-        3
-      )}`
-    : errorMsg ?? "Getting location...";
   const weatherText = weather ?? weatherError ?? "Getting weather...";
 
   return (
