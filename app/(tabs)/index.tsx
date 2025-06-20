@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedText } from "@/components/ThemedText";
+import WeatherComponent from "@/components/ui/weatherComponent";
 
 import * as Location from "expo-location";
 
@@ -26,7 +27,9 @@ export default function Index() {
         const res = await fetch(url);
         if (!res.ok) {
           setWeather(null);
-          setWeatherError(`Failed to fetch weather: ${res.status} ${res.statusText}`);
+          setWeatherError(
+            `Failed to fetch weather: ${res.status} ${res.statusText}`
+          );
           return;
         }
         const data = await res.json();
@@ -92,13 +95,19 @@ export default function Index() {
           <StatusBar style="auto" animated />
         </View>
         <ThemedScrollView
+          style={styles.container}
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }
         >
           <ThemedText style={styles.title}>Home screen</ThemedText>
-          <ThemedText style={styles.text}>Location: {locationText}</ThemedText>
-          <ThemedText style={styles.text}>Weather: {weatherText}</ThemedText>
+          <WeatherComponent
+            locationText={locationText}
+            currentTemp={weather ? parseInt(weather, 10) : 0}
+            weatherText={weatherText}
+            highTemp={30} // Placeholder value
+            lowTemp={20} // Placeholder value   
+          />
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
@@ -106,6 +115,10 @@ export default function Index() {
 }
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 6,
+  },
   title: {
     fontSize: 32,
     padding: 12,
