@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     borderRadius: 16,
-    padding: 20,
+    padding: 15,
+    margin: 5,
     // iOS shadow
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
