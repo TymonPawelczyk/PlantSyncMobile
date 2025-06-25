@@ -29,7 +29,7 @@ const WeatherComponent: React.FC<WeatherComponentProps> = ({
     <View style={styles.container}>
       <Text style={styles.title}>WEATHER</Text>
       <View style={styles.topRow}>
-        <Ionicons name="sunny" size={80} color="#FFD700" />
+        <Ionicons name="sunny" size={80} color="#FFD700" accessible={false} />
         <View style={styles.tempBlock}>
           <Text style={styles.currentTempText}>{currentTemp}°</Text>
           <Text style={styles.weatherText}>{weatherText}</Text>
