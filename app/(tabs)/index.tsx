@@ -117,11 +117,11 @@ export default function Index() {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 6,
+    padding: 10,
   },
   title: {
     fontSize: 32,
-    padding: 12,
+    padding: 10,
   },
   text: {
     fontSize: 20,
