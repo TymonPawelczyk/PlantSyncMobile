@@ -19,6 +19,8 @@ export default function Index() {
   const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
   const [weather, setWeather] = React.useState<string | null>(null);
   const [weatherError, setWeatherError] = React.useState<string | null>(null);
+  const [highTemp, setHighTemp] = React.useState<number | null>(null);
+  const [lowTemp, setLowTemp] = React.useState<number | null>(null);
 
   const getWeather = React.useCallback(
     async (coordinates: Location.LocationObjectCoords) => {
