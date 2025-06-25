@@ -46,6 +46,21 @@ export default function Index() {
           setWeather(null);
           setWeatherError("No weather data");
         }
+
+        if (typeof temp === "number") {
+          setWeather(`${Math.round(temp)}°C`);
+          setWeatherError(null);
+        } else {
+          setWeather(null);
+          setWeatherError("No weather data");
+        }
+
+        if (typeof dailyMax === "number") {
+          setHighTemp(Math.round(dailyMax));
+        }
+        if (typeof dailyMin === "number") {
+          setLowTemp(Math.round(dailyMin));
+        }
       } catch (e) {
         console.error(e);
         setWeather(null);
