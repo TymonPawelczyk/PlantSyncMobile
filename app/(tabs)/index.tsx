@@ -36,6 +36,9 @@ export default function Index() {
         }
         const data = await res.json();
         const temp = data?.current?.temperature_2m;
+        const dailyMax = data?.daily?.temperature_2m_max?.[0];
+        const dailyMin = data?.daily?.temperature_2m_min?.[0];
+
         if (typeof temp === "number") {
           setWeather(`${temp}°C`);
           setWeatherError(null);
