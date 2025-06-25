@@ -105,8 +105,8 @@ export default function Index() {
             locationText={locationText}
             currentTemp={weather ? parseInt(weather, 10) : 0}
             weatherText={weatherText}
-            highTemp={30} // Placeholder value
-            lowTemp={20} // Placeholder value   
+            highTemp={highTemp ?? 0} // Dynamic value
+            lowTemp={lowTemp ?? 0} // Dynamic value   
           />
         </ThemedScrollView>
       </ThemedSafeAreaView>
