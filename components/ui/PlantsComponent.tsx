@@ -90,12 +90,10 @@ const PlantComponent: React.FC<
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    width: 180,
+    padding: 16,
+    borderRadius: 20,
     alignItems: "center",
-    padding: 10,
-    margin: 16,
-    borderRadius: 8,
-    marginBottom: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
