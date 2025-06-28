@@ -11,7 +11,7 @@ interface PlantComponentItems {
   name: string;
   species?: string;
   imageUrl?: string;
-  lastWatered?: string;
+  lastWatered?: string; // Kept for data consistency, but not displayed
   onPress?: (id: string | number) => void;
 }
 
@@ -27,15 +27,17 @@ const PlantComponent: React.FC<
   name,
   species,
   imageUrl,
-  lastWatered,
   onPress,
   style,
   contentContainerStyle,
 }) => {
   const colorScheme = useColorScheme();
   const colors = {
-    background: colorScheme === "dark" ? "#343a40" : "#edede9",
-    text: colorScheme === "dark" ? "#D8D7D4" : "#212529",
+    background: colorScheme === "dark" ? "#1c1c1e" : "#f2f2f7",
+    text: colorScheme === "dark" ? "#ffffff" : "#000000",
+    subtleText: colorScheme === "dark" ? "#8e8e93" : "#6c6c70",
+    buttonBackground: colorScheme === "dark" ? "#2c2c2e" : "#e5e5ea",
+    buttonText: colorScheme === "dark" ? "#ffffff" : "#000000",
   };
 
   return (
