@@ -65,19 +65,25 @@ const PlantComponent: React.FC<
       </View>
 
       <View style={[styles.detailsContainer, contentContainerStyle]}>
-        <ThemedText style={styles.title}>{name}</ThemedText>
+        <ThemedText style={{ ...styles.nameText, color: colors.text }}>
+          {name}
+        </ThemedText>
 
         {species && (
-          <ThemedText style={styles.description}>Species: {species}</ThemedText>
-        )}
-
-        {lastWatered && (
-          <ThemedText style={styles.description}>
-            Last Watered: {lastWatered}
+          <ThemedText style={{ ...styles.speciesText, color: colors.subtleText }}>
+            {species}
           </ThemedText>
         )}
       </View>
-      <DeletePlantComponent />
+
+      <Pressable
+        style={[styles.button, { backgroundColor: colors.buttonBackground }]}
+        onPress={() => onPress?.(id)}
+      >
+        <ThemedText style={{ ...styles.speciesText, color: colors.subtleText }}>
+            {species}
+          </ThemedText>
+      </Pressable>
     </Pressable>
   );
 };
