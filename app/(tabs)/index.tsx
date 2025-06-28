@@ -128,6 +128,10 @@ export default function Index() {
             highTemp={highTemp ?? 0} // Dynamic value
             lowTemp={lowTemp ?? 0} // Dynamic value
           />
+          <ThemedText style={styles.title}>Notifications</ThemedText>
+          <ThemedText style={styles.text}>
+            This is a placeholder for notifications.
+          </ThemedText>
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
