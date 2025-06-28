@@ -4,8 +4,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { ThemedText } from "@/components/ThemedText";
 
-import DeletePlantComponent from "./DeletePlantComponent";
-
 interface PlantComponentItems {
   id: string | number;
   name: string;
