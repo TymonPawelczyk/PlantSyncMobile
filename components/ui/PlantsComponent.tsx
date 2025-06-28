@@ -119,17 +119,12 @@ const styles = StyleSheet.create({
     height: "90%",
   },
   imagePlaceholder: {
-    backgroundColor: "#e0e0e0",
     justifyContent: "center",
     alignItems: "center",
   },
-  placeholderText: {
-    fontSize: 30,
-    color: "#000",
-  },
   detailsContainer: {
-    flex: 4,
-    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 20,
   },
   nameText: {
     fontSize: 16,
