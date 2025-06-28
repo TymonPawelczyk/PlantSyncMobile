@@ -126,7 +126,7 @@ export default function Index() {
             currentTemp={weather ? parseInt(weather, 10) : 0}
             weatherText={weatherText}
             highTemp={highTemp ?? 0} // Dynamic value
-            lowTemp={lowTemp ?? 0} // Dynamic value   
+            lowTemp={lowTemp ?? 0} // Dynamic value
           />
         </ThemedScrollView>
       </ThemedSafeAreaView>
