@@ -57,20 +57,22 @@ export default function PlantsScreen() {
           {["Fruits", "Vegetables", "Spices"].map((title) => (
             <View key={title} style={styles.listContainer}>
               <ThemedText style={styles.text}>{title}</ThemedText>
-              {myPlantsData.map((item) => (
-                <PlantComponent
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  species={item.species}
-                  imageUrl={item.imageUrl}
-                  lastWatered={item.lastWatered}
-                  onPress={(id) => {
-                    console.log("Pressed plant with id:", id);
-                    gotoPlantDetails();
-                  }}
-                />
-              ))}
+              <View style={styles.plantItemsContainer}>
+                {myPlantsData.map((item) => (
+                  <PlantComponent
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    species={item.species}
+                    imageUrl={item.imageUrl}
+                    lastWatered={item.lastWatered}
+                    onPress={(id) => {
+                      console.log("Pressed plant with id:", id);
+                      gotoPlantDetails();
+                    }}
+                  />
+                ))}
+              </View>
             </View>
           ))}
         </ScrollView>
@@ -91,6 +93,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.2,
   },
   listContainer: {
-    marginBottom: 20,
+    marginBottom: 10,
+  },
+  plantItemsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
   },
 });

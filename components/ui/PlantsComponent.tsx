@@ -4,14 +4,12 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { ThemedText } from "@/components/ThemedText";
 
-import DeletePlantComponent from "./DeletePlantComponent";
-
 interface PlantComponentItems {
   id: string | number;
   name: string;
   species?: string;
   imageUrl?: string;
-  lastWatered?: string;
+  lastWatered?: string; // Kept for data consistency, but not displayed
   onPress?: (id: string | number) => void;
 }
 
@@ -27,15 +25,17 @@ const PlantComponent: React.FC<
   name,
   species,
   imageUrl,
-  lastWatered,
   onPress,
   style,
   contentContainerStyle,
 }) => {
   const colorScheme = useColorScheme();
   const colors = {
-    background: colorScheme === "dark" ? "#343a40" : "#edede9",
-    text: colorScheme === "dark" ? "#D8D7D4" : "#212529",
+    background: colorScheme === "dark" ? "#1c1c1e" : "#f2f2f7",
+    text: colorScheme === "dark" ? "#ffffff" : "#000000",
+    subtleText: colorScheme === "dark" ? "#8e8e93" : "#6c6c70",
+    buttonBackground: colorScheme === "dark" ? "#2c2c2e" : "#e5e5ea",
+    buttonText: colorScheme === "dark" ? "#ffffff" : "#000000",
   };
 
   return (
@@ -43,107 +43,105 @@ const PlantComponent: React.FC<
       style={({ pressed }) => [
         styles.container,
         { backgroundColor: colors.background },
-        ,
+        style,
         pressed && styles.containerPressed,
       ]}
       onPress={() => onPress?.(id)}
     >
-      {imageUrl ? (
-        <Image
-          source={{ uri: imageUrl }}
-          style={styles.image}
-          resizeMode="cover"
-        />
-      ) : (
-        <View style={[styles.image, styles.imagePlaceholder]}>
-          {imageUrl === undefined && (
-            <Ionicons
-              name="leaf-outline"
-              size={30}
-              color={colors.text}
-              style={styles.placeholderText}
-            />
-          )}
-        </View>
-      )}
+      <View style={styles.imageContainer}>
+        {imageUrl ? (
+          <Image
+            source={{ uri: imageUrl }}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        ) : (
+          <View style={[styles.image, styles.imagePlaceholder]}>
+            <Ionicons name="leaf-outline" size={60} color={colors.subtleText} />
+          </View>
+        )}
+      </View>
 
       <View style={[styles.detailsContainer, contentContainerStyle]}>
-        <ThemedText style={styles.title}>{name}</ThemedText>
+        <ThemedText style={{ ...styles.nameText, color: colors.text }}>
+          {name}
+        </ThemedText>
 
         {species && (
-          <ThemedText style={styles.description}>Species: {species}</ThemedText>
-        )}
-
-        {lastWatered && (
-          <ThemedText style={styles.description}>
-            Last Watered: {lastWatered}
+          <ThemedText style={{ ...styles.speciesText, color: colors.subtleText }}>
+            {species}
           </ThemedText>
         )}
       </View>
-      <DeletePlantComponent />
+
+      <Pressable
+        style={[styles.button, { backgroundColor: colors.buttonBackground }]}
+        onPress={() => onPress?.(id)}
+      >
+        <ThemedText style={{ ...styles.speciesText, color: colors.subtleText }}>
+            Details
+          </ThemedText>
+      </Pressable>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    width: 180,
+    padding: 16,
+    borderRadius: 20,
     alignItems: "center",
-    padding: 10,
-    margin: 16,
-    borderRadius: 8,
-    marginBottom: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 4,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+    margin: 8,
   },
   containerPressed: {
-    opacity: 0.8, // Visual feedback when pressed
+    opacity: 0.8,
   },
-  image: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginRight: 15,
-  },
-  imagePlaceholder: {
-    backgroundColor: "#e0e0e0",
+  imageContainer: {
+    width: "100%",
+    aspectRatio: 1,
+    marginBottom: 16,
     justifyContent: "center",
     alignItems: "center",
   },
-  placeholderText: {
-    fontSize: 30,
-    color: "#000",
+  image: {
+    width: "90%",
+    height: "90%",
+  },
+  imagePlaceholder: {
+    justifyContent: "center",
+    alignItems: "center",
   },
   detailsContainer: {
-    flex: 4,
-    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 20,
   },
   nameText: {
-    fontSize: 16,
+    fontSize: 22,
     fontWeight: "bold",
     marginBottom: 4,
   },
-  detailsText: {
-    fontSize: 12,
-    color: "#555",
+  speciesText: {
+    fontSize: 16,
   },
-  title: {
+  button: {
+    width: "100%",
+    paddingVertical: 12,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonText: {
     fontSize: 16,
     fontWeight: "500",
-  },
-  description: {
-    fontSize: 14,
-    fontWeight: "300",
-  },
-  edit: {
-    fontSize: 12,
-    fontWeight: "300",
   },
 });
 
