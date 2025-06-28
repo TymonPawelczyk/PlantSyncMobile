@@ -45,29 +45,24 @@ const PlantComponent: React.FC<
       style={({ pressed }) => [
         styles.container,
         { backgroundColor: colors.background },
-        ,
+        style,
         pressed && styles.containerPressed,
       ]}
       onPress={() => onPress?.(id)}
     >
-      {imageUrl ? (
-        <Image
-          source={{ uri: imageUrl }}
-          style={styles.image}
-          resizeMode="cover"
-        />
-      ) : (
-        <View style={[styles.image, styles.imagePlaceholder]}>
-          {imageUrl === undefined && (
-            <Ionicons
-              name="leaf-outline"
-              size={30}
-              color={colors.text}
-              style={styles.placeholderText}
-            />
-          )}
-        </View>
-      )}
+      <View style={styles.imageContainer}>
+        {imageUrl ? (
+          <Image
+            source={{ uri: imageUrl }}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        ) : (
+          <View style={[styles.image, styles.imagePlaceholder]}>
+            <Ionicons name="leaf-outline" size={60} color={colors.subtleText} />
+          </View>
+        )}
+      </View>
 
       <View style={[styles.detailsContainer, contentContainerStyle]}>
         <ThemedText style={styles.title}>{name}</ThemedText>
