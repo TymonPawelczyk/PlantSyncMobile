@@ -1,95 +1,50 @@
-# PlantSync
+# Welcome to PlantSync Mobile App 👋
 
-PlantSync is a mobile application built with React Native and Expo to help users manage their plants. It provides features for tracking plant care, setting reminders for watering, and viewing plant details.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## 🚀 Getting Started
+## Get started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+1. Install dependencies
 
-### Prerequisites
-
-- Node.js and npm
-- Expo CLI
-
-```bash
-npm install -g expo-cli
-```
-
-### Installing
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/PlantSync.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd PlantSync
-   ```
-3. Install the dependencies:
    ```bash
    npm install
    ```
 
-### Running the Application
+2. Start the app
 
-You can run the application in various environments using the following scripts:
+   ```bash
+    npx expo start
+   ```
 
-- **Start the development server:**
-  ```bash
-  npm start
-  ```
-  This will open the Expo DevTools in your browser, where you can choose to run the app on an emulator or a physical device.
+In the output, you'll find options to open the app in a
 
-- **Run on Android:**
-  ```bash
-  npm run android
-  ```
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-- **Run on iOS:**
-  ```bash
-  npm run ios
-  ```
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-- **Run on Web:**
-  ```bash
-  npm run web
-  ```
+## Get a fresh project
 
-## Available Scripts
+When you're ready, run:
 
-In the project directory, you can run:
-
-- `npm start`: Runs the app in development mode.
-- `npm run android`: Runs the app on an Android emulator or connected device.
-- `npm run ios`: Runs the app on an iOS simulator or connected device.
-- `npm run web`: Runs the app in a web browser.
-- `npm test`: Runs the test suite.
-- `npm run lint`: Lints the code using ESLint.
-
-## 🛠️ Built With
-
-- [React Native](https://reactnative.dev/) - The framework used for building native apps.
-- [Expo](https://expo.dev/) - The platform for making universal React applications.
-- [Expo Router](https://expo.github.io/router/) - A file-based router for React Native and web applications.
-- [TypeScript](https.www.typescriptlang.org/) - A typed superset of JavaScript.
-
-## Project Structure
-
-```
-.
-├── app/                # Main application code with routes
-├── assets/             # Images, fonts, and other static assets
-├── components/         # Reusable components
-├── constants/          # Constants like colors and styles
-├── hooks/              # Custom hooks
-├── package.json        # Project dependencies and scripts
-└── tsconfig.json       # TypeScript configuration
+```bash
+npm run reset-project
 ```
 
-## Contributing
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+## Learn more
 
-## License
+To learn more about developing your project with Expo, look at the following resources:
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
