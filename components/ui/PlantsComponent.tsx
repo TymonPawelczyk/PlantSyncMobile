@@ -145,14 +145,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
   },
-  description: {
-    fontSize: 14,
-    fontWeight: "300",
-  },
-  edit: {
-    fontSize: 12,
-    fontWeight: "300",
-  },
 });
 
 export default PlantComponent;
