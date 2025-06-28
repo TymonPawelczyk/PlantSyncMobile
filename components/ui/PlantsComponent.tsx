@@ -131,9 +131,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 4,
   },
-  detailsText: {
-    fontSize: 12,
-    color: "#555",
+  speciesText: {
+    fontSize: 16,
+  },
+  button: {
+    width: "100%",
+    paddingVertical: 12,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 16,
