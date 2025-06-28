@@ -79,7 +79,7 @@ const PlantComponent: React.FC<
         onPress={() => onPress?.(id)}
       >
         <ThemedText style={{ ...styles.speciesText, color: colors.subtleText }}>
-            {species}
+            Details
           </ThemedText>
       </Pressable>
     </Pressable>
