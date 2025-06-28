@@ -105,13 +105,18 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   containerPressed: {
-    opacity: 0.8, // Visual feedback when pressed
+    opacity: 0.8,
+  },
+  imageContainer: {
+    width: "100%",
+    aspectRatio: 1,
+    marginBottom: 16,
+    justifyContent: "center",
+    alignItems: "center",
   },
   image: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginRight: 15,
+    width: "90%",
+    height: "90%",
   },
   imagePlaceholder: {
     backgroundColor: "#e0e0e0",
