@@ -19,11 +19,13 @@ export default function Index() {
   const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
   const [weather, setWeather] = React.useState<string | null>(null);
   const [weatherError, setWeatherError] = React.useState<string | null>(null);
+  const [highTemp, setHighTemp] = React.useState<number | null>(null);
+  const [lowTemp, setLowTemp] = React.useState<number | null>(null);
 
   const getWeather = React.useCallback(
     async (coordinates: Location.LocationObjectCoords) => {
       try {
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&current=temperature_2m&timezone=auto`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&current=temperature_2m&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
         const res = await fetch(url);
         if (!res.ok) {
           setWeather(null);
@@ -34,12 +36,30 @@ export default function Index() {
         }
         const data = await res.json();
         const temp = data?.current?.temperature_2m;
+        const dailyMax = data?.daily?.temperature_2m_max?.[0];
+        const dailyMin = data?.daily?.temperature_2m_min?.[0];
+
         if (typeof temp === "number") {
           setWeather(`${temp}°C`);
           setWeatherError(null);
         } else {
           setWeather(null);
           setWeatherError("No weather data");
+        }
+
+        if (typeof temp === "number") {
+          setWeather(`${Math.round(temp)}°C`);
+          setWeatherError(null);
+        } else {
+          setWeather(null);
+          setWeatherError("No weather data");
+        }
+
+        if (typeof dailyMax === "number") {
+          setHighTemp(Math.round(dailyMax));
+        }
+        if (typeof dailyMin === "number") {
+          setLowTemp(Math.round(dailyMin));
         }
       } catch (e) {
         console.error(e);
@@ -106,7 +126,7 @@ export default function Index() {
             currentTemp={weather ? parseInt(weather, 10) : 0}
             weatherText={weatherText}
             highTemp={highTemp ?? 0} // Dynamic value
-            lowTemp={lowTemp ?? 0} // Dynamic value   
+            lowTemp={lowTemp ?? 0} // Dynamic value
           />
         </ThemedScrollView>
       </ThemedSafeAreaView>
