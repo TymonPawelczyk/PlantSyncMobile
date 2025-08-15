@@ -1,38 +1,12 @@
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedText } from "@/components/ThemedText";
-import { useTheme } from "@/hooks/ThemeProvider";
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Switch } from "react-native";
-import * as Notifications from "expo-notifications";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React from "react";
+import { View, StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Settings() {
-  const { theme, toggleTheme } = useTheme();
-  const [allowNotifications, setAllowNotifications] = useState(false);
-
-  useEffect(() => {
-    AsyncStorage.getItem("allowNotifications").then((value) => {
-      if (value !== null) {
-        setAllowNotifications(JSON.parse(value));
-      }
-    });
-  }, []);
-
-  const handleToggle = async (value: boolean) => {
-    if (value) {
-      const { status } = await Notifications.requestPermissionsAsync();
-      if (status !== "granted") {
-        setAllowNotifications(false);
-        return;
-      }
-    }
-    setAllowNotifications(value);
-    await AsyncStorage.setItem("allowNotifications", JSON.stringify(value));
-  };
-
   return (
     <SafeAreaProvider>
       <ThemedSafeAreaView>
@@ -41,14 +15,6 @@ export default function Settings() {
         </View>
         <ThemedScrollView>
           <ThemedText style={styles.text}>Settings</ThemedText>
-          <View style={styles.row}>
-            <ThemedText style={styles.label}>Enable Notifications</ThemedText>
-            <Switch value={allowNotifications} onValueChange={handleToggle} />
-          </View>
-          <View style={styles.themeRow}>
-            <ThemedText>Light Mode</ThemedText>
-            <Switch value={theme === "light"} onValueChange={toggleTheme} />
-          </View>
         </ThemedScrollView>
       </ThemedSafeAreaView>
     </SafeAreaProvider>
@@ -69,23 +35,5 @@ const styles = StyleSheet.create({
   statusBarContainer: {
     borderColor: "#343a40",
     borderBottomWidth: 0.2,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 12,
-  },
-  label: {
-    fontSize: 16,
-  },
-  themeRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 12,
-    marginTop: 12,
-    borderTopWidth: 0.2,
-    borderColor: "#343a40",
   },
 });

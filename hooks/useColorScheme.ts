@@ -1,6 +1,6 @@
-import { useTheme } from './ThemeProvider';
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeProvider";
 
 export function useColorScheme() {
-  const { theme } = useTheme();
-  return theme;
+  return useContext(ThemeContext).theme;
 }
