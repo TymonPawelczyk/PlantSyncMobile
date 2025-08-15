@@ -43,14 +43,11 @@ export default function Settings() {
           <ThemedText style={styles.text}>Settings</ThemedText>
           <View style={styles.row}>
             <ThemedText style={styles.label}>Enable Notifications</ThemedText>
-            <Switch
-              value={allowNotifications}
-              onValueChange={handleToggle}
-            />
+            <Switch value={allowNotifications} onValueChange={handleToggle} />
           </View>
-            <View style={styles.themeRow}>
-            <ThemedText>Dark Mode</ThemedText>
-            <Switch value={theme === "dark"} onValueChange={toggleTheme} />
+          <View style={styles.themeRow}>
+            <ThemedText>Light Mode</ThemedText>
+            <Switch value={theme === "light"} onValueChange={toggleTheme} />
           </View>
         </ThemedScrollView>
       </ThemedSafeAreaView>
@@ -90,6 +87,5 @@ const styles = StyleSheet.create({
     marginTop: 12,
     borderTopWidth: 0.2,
     borderColor: "#343a40",
-    
   },
 });
