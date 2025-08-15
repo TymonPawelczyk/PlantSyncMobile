@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
+import { ThemeProvider } from "@/hooks/ThemeProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -21,9 +22,12 @@ export default function RootLayout() {
     return null;
   }
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="+not-found" />
-    </Stack>
+    <ThemeProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="+not-found" />
+      </Stack>
+    </ThemeProvider>
   );
 }
+
