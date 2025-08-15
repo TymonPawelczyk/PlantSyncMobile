@@ -1,17 +1,27 @@
-import React, { createContext, useState } from "react";
-import { Appearance } from "react-native";
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-export const ThemeContext = createContext({
-  theme: Appearance.getColorScheme() ?? "light",
+type Theme = 'light' | 'dark';
+
+type ThemeContextType = {
+  theme: Theme;
+  toggleTheme: () => void;
+};
+
+const ThemeContext = createContext<ThemeContextType>({
+  theme: 'light',
   toggleTheme: () => {},
 });
 
-export const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState(Appearance.getColorScheme() ?? "light");
-  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<Theme>('light');
+
+  const toggleTheme = () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
-};
+}
+
+export const useTheme = () => useContext(ThemeContext);
