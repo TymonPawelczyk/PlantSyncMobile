@@ -47,10 +47,10 @@ export default function Settings() {
               value={allowNotifications}
               onValueChange={handleToggle}
             />
+          </View>
             <View style={styles.themeRow}>
             <ThemedText>Dark Mode</ThemedText>
             <Switch value={theme === "dark"} onValueChange={toggleTheme} />
-          </View>
           </View>
         </ThemedScrollView>
       </ThemedSafeAreaView>
@@ -87,5 +87,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 12,
+    marginTop: 12,
+    borderTopWidth: 0.2,
+    borderColor: "#343a40",
+    
   },
 });
