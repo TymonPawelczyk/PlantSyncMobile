@@ -1,6 +1,7 @@
 import { ThemedSafeAreaView } from "@/components/ThemedSafeAreaView";
 import { ThemedScrollView } from "@/components/ThemedScrollView";
 import { ThemedText } from "@/components/ThemedText";
+import { useTheme } from "@/hooks/ThemeProvider";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Switch } from "react-native";
@@ -9,6 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Settings() {
+  const { theme, toggleTheme } = useTheme();
   const [allowNotifications, setAllowNotifications] = useState(false);
 
   useEffect(() => {
@@ -45,6 +47,10 @@ export default function Settings() {
               value={allowNotifications}
               onValueChange={handleToggle}
             />
+            <View style={styles.themeRow}>
+            <ThemedText>Dark Mode</ThemedText>
+            <Switch value={theme === "dark"} onValueChange={toggleTheme} />
+          </View>
           </View>
         </ThemedScrollView>
       </ThemedSafeAreaView>
@@ -75,5 +81,11 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
+  },
+  themeRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 12,
   },
 });
