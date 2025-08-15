@@ -12,21 +12,14 @@ const myPlantsData = [
   {
     id: 1,
     name: "Swiss Cheese Plant",
-    species: "Monstera Deliciosa",
-    lastWatered: "Yesterday",
   },
   {
     id: 2,
     name: "Snake Plant",
-    lastWatered: "3 days ago",
   },
   {
     id: 3,
     name: "Fiddle Leaf Fig",
-    species: "Ficus Lyrata",
-    lastWatered: "Last week",
-    imageUrl:
-      "https://www.thesill.com/cdn/shop/files/the-sill_Fiddle-Leaf-Fig-Tree_Large_Pallas_Cream_Variant_8735f6bb-bb33-4d96-9858-13dc076566d8.jpg?v=1744404801&width=1946",
   },
 ];
 
@@ -63,9 +56,6 @@ export default function PlantsScreen() {
                     key={item.id}
                     id={item.id}
                     name={item.name}
-                    species={item.species}
-                    imageUrl={item.imageUrl}
-                    lastWatered={item.lastWatered}
                     onPress={(id) => {
                       console.log("Pressed plant with id:", id);
                       gotoPlantDetails();
